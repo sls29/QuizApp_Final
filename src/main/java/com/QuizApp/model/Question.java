@@ -25,9 +25,9 @@ public class Question {
     private int score;
     private String content;
 
-    public Question(String type, String name, int active, int level, int score, String content){
-        this.type = type;
+    public Question( String name, String type, int active, int level, int score, String content){
         this.name = name;
+        this.type = type;
         this.active = active;
         this.level = level;
         this.score = score;
