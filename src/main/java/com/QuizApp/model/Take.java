@@ -2,6 +2,7 @@ package com.QuizApp.model;
 
 import jakarta.persistence.*;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
 
@@ -10,6 +11,7 @@ import lombok.ToString;
 @ToString
 @Entity
 @Table(name = "takes")
+@NoArgsConstructor
 
 public class Take {
     @Id
