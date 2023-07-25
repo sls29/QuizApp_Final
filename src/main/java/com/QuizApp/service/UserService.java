@@ -4,8 +4,14 @@ import com.QuizApp.model.User;
 import com.QuizApp.model.dto.CreateUserDto;
 import com.QuizApp.repository.JpaUserRepository;
 
+import java.util.regex.Pattern;
+
 public class UserService {
     private final JpaUserRepository jpaUserRepository;
+
+    public UserService() {
+        jpaUserRepository = null;
+    }
 
     public void addUser(CreateUserDto createUserDto){
         if (!validateUserData(createUserDto)) {
@@ -29,8 +35,9 @@ public class UserService {
         boolean emailIsOK = userDto.getEmail() != null && Pattern.compile(emailValidationPattern)
                 .matcher(userDto.getEmail())
                 .matches();
-        boolean nameIsOk = userDto.getName() != null && userDto.getName().length() < 50;
+        boolean firstNameIsOk = userDto.getFirstName() != null && userDto.getFirstName().length() < 50;
+        boolean lastNameIsOk = userDto.getLastName() != null && userDto.getLastName().length() < 50;
 
-        return emailIsOK && nameIsOk;
+        return emailIsOK && firstNameIsOk && lastNameIsOk;
     }
 }

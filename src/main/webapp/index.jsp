@@ -44,10 +44,10 @@
                 <form action="userLogin.jsp">
                     <br/>
                     <div class="form-outline mb-4">
-                        <input type="text" name="email" value="Email..." onclick="this.value=''"/><br/>
+                        <input type="text" name="eemail" value="Email..." onclick="this.value=''"/><br/>
                     </div>
                     <div class="form-outline mb-4">
-                        <input type="text" name="password"  value="Password..." onclick="this.value=''"/><br/>
+                        <input type="text" name="ppassword"  value="Password..." onclick="this.value=''"/><br/>
                     </div>
                     <br/>
                         <input type="submit" value="Login" class="btn btn-primary btn-block"/>
@@ -58,19 +58,19 @@
                 <form action="userRegistration.jsp">
                     <br/>
                     <div class="form-outline mb-4">
-                        <input type="text" name="add_firstName" value="firstName..." onclick="this.value=''"/><br/>
+                        <input type="text" name="firstName" value="firstName..." onclick="this.value=''"/><br/>
                     </div>
                     <div class="form-outline mb-4">
-                        <input type="text" name="add_lastName"  value="lastName..." onclick="this.value=''"/><br/>
+                        <input type="text" name="lastName"  value="lastName..." onclick="this.value=''"/><br/>
                     </div>
                     <div class="form-outline mb-4">
-                        <input type="text" name="add_email" value="Email..." onclick="this.value=''"/><br/>
+                        <input type="text" name="email" value="Email..." onclick="this.value=''"/><br/>
                     </div>
                     <div class="form-outline mb-4">
-                       <input type="text" name="add_password"  value="Password..." onclick="this.value=''"/><br/>
+                       <input type="text" name="password"  value="Password..." onclick="this.value=''"/><br/>
                     </div>
                     <div class="form-outline mb-4">
-                       <input type="text" name="add_password2"  value="Password..." onclick="this.value=''"/><br/>
+                       <input type="text" name="password2"  value="Password..." onclick="this.value=''"/><br/>
                     </div>
                     <br/>
                         <input type="submit" value="userRegistration" class="btn btn-primary btn-block"/>

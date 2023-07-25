@@ -1,6 +1,6 @@
 package com.QuizApp.model.dto;
 
-import lombok.Data
+import lombok.Data;
 
 import java.time.LocalDateTime;
 

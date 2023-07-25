@@ -1,18 +1,18 @@
-<%@ page import="com.QuizApp.User, com.QuizApp.JpaUserRepository" %>
+<%@ page import="com.QuizApp.model.User, com.QuizApp.repository.JpaUserRepository" %>
 
 <%
-      JpaUserRepository repository = new JpaUserRepository();
+      String firstName = request.getParameter("firstName");
+      String lastName = request.getParameter("lastName");
+      String email = request.getParameter("email");
+      String passwordHash = request.getParameter("password");
 
-      String firstName = req.getParameter("add_firstName");
-      String lastName = req.getParameter("add_lastName");
-      String email = req.getParameter("add_email");
-      String password = req.getParameter("add_password");
-      String passwordCk = req.getParameter("add_password2");
 
-      User user = new User(firstName, lastName, email, passwordHash, registeredAt, null);
+      User user = new User(firstName, lastName, email, passwordHash, null, null);
+
+     JpaUserRepository repository = new JpaUserRepository();
 
       repository.userRegistration(user);
 
 %>
 
-  <meta http-equiv="Refresh" content="0; url='/QuizApp" />
+  <meta http-equiv="Refresh" content="0; url='/QuizApp_Final" />

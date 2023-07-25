@@ -15,7 +15,7 @@ import java.io.IOException;
 import java.io.PrintWriter;
 
 
-@WebServlet(name = "UserApi", urlPattern = "/user-api")
+@WebServlet("/user-api")
 public class UserApiServlet extends HttpServlet {
 
     @Override

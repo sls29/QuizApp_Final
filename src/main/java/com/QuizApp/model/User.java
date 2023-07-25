@@ -26,10 +26,10 @@ public class User {
     private String email;
     private String passwordHash;
     private LocalDateTime registeredAt;
-    private Date lastLogin;
+    private LocalDateTime lastLogin;
 
     public User (String firstName, String lastName, String email,
-                 String passwordHash, LocalDateTime registeredAt, Date lastLogin) {
+                 String passwordHash, LocalDateTime registeredAt, LocalDateTime lastLogin) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.email = email;
