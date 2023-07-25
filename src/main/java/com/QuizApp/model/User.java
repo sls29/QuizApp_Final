@@ -6,6 +6,7 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
 
+import java.time.LocalDateTime;
 import java.util.Date;
 
 @Getter
@@ -24,11 +25,11 @@ public class User {
     private String lastName;
     private String email;
     private String passwordHash;
-    private Date registeredAt;
+    private LocalDateTime registeredAt;
     private Date lastLogin;
 
     public User (String firstName, String lastName, String email,
-                 String passwordHash, Date registeredAt, Date lastLogin) {
+                 String passwordHash, LocalDateTime registeredAt, Date lastLogin) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.email = email;
