@@ -8,8 +8,10 @@ public class JpaUserRepository {
     EntityManagerFactory emFactory = Persistence.createEntityManagerFactory("Eclipselink_JPA");
     EntityManager entityManager = emFactory.createEntityManager();
 
-    public void userLogin(User user){
+    public void userRegistration(User user){
         entityManager.getTransaction().begin();
         entityManager.persist(user);
+        entityManager.getTransaction().commit();
+        entityManager.close();
     }
 }
