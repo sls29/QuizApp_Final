@@ -16,7 +16,7 @@ import java.io.PrintWriter;
 
 
 @WebServlet("/userRegistration.jsp")
-public class UserRegistrationServlet extends HttpServlet {
+public class UserApiServlet extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
@@ -45,8 +45,6 @@ public class UserRegistrationServlet extends HttpServlet {
     DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy/MM/dd HH:mm:ss");
     LocalDateTime registeredAt = LocalDateTime.now();
 
-        User user = new User(firstName, lastName, email, passwordHash, registeredAt, null);
-
-     repository.userRegistration(user);
+      
     }
 }
