@@ -9,8 +9,8 @@ import java.util.regex.Pattern;
 public class UserService {
     private final JpaUserRepository jpaUserRepository;
 
-    public UserService() {
-        jpaUserRepository = null;
+    public UserService(JpaUserRepository jpaUserRepository) {
+        this.jpaUserRepository = null;
     }
 
     public void addUser(CreateUserDto createUserDto){

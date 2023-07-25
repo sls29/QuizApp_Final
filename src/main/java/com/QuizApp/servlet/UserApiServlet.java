@@ -1,7 +1,9 @@
 package com.QuizApp.servlet;
 
 import com.QuizApp.model.User;
+import com.QuizApp.model.dto.CreateUserDto;
 import com.QuizApp.repository.JpaUserRepository;
+import com.QuizApp.service.UserService;
 import jakarta.security.enterprise.credential.Password;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
@@ -17,6 +19,9 @@ import java.io.PrintWriter;
 
 @WebServlet("/user-api")
 public class UserApiServlet extends HttpServlet {
+
+    private final UserService userService = new UserService(new JpaUserRepository());
+    private final JpaUserRepository userRepository = new JpaUserRepository();
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
@@ -44,6 +49,16 @@ public class UserApiServlet extends HttpServlet {
 
     DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy/MM/dd HH:mm:ss");
     LocalDateTime registeredAt = LocalDateTime.now();
+
+        CreateUserDto userDto = new CreateUserDto();
+        userDto.setFirstName(firstName);
+        userDto.setLastName(lastName);
+        userDto.setEmail(email);
+        userDto.setPasswordHash(password);
+        userDto.setRegisteredAt(registeredAt);
+        userDto.setLastLogin(null);
+
+        userService.addUser(userDto);
 
       
     }

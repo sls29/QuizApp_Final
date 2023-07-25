@@ -9,9 +9,9 @@
 
       User user = new User(firstName, lastName, email, passwordHash, null, null);
 
-     JpaUserRepository repository = new JpaUserRepository();
+      JpaUserRepository userRepo = new JpaUserRepository();
 
-      repository.userRegistration(user);
+      userRepo.userRegistration(user);
 
 %>
 
