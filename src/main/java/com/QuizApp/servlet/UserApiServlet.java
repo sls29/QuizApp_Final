@@ -15,7 +15,7 @@ import java.io.IOException;
 import java.io.PrintWriter;
 
 
-@WebServlet("/userRegistration.jsp")
+@WebServlet(name = "UserApi", urlPattern = "/user-api")
 public class UserApiServlet extends HttpServlet {
 
     @Override
