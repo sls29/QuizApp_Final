@@ -17,16 +17,13 @@ import java.io.IOException;
 import java.io.PrintWriter;
 
 
-
 @WebServlet("/user-api")
 public class UserApiServlet extends HttpServlet {
     private final UserService userService = new UserService(new JpaUserRepository());
-//    private final JpaUserRepository userRepository = new JpaUserRepository();
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
-    JpaUserRepository repository = new JpaUserRepository();
 
     PrintWriter pw = null;
 
@@ -58,7 +55,7 @@ public class UserApiServlet extends HttpServlet {
         userDto.setFirstName(firstName);
         userDto.setLastName(lastName);
         userDto.setEmail(email);
-        userDto.setPasswordHash(password);
+        userDto.setPasswordHash(passwordHash);
         userDto.setRegisteredAt(registeredAt);
         userDto.setLastLogin(registeredAt);
 
