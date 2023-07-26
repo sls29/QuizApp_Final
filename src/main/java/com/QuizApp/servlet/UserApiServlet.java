@@ -15,18 +15,18 @@ import java.time.LocalDateTime;
 import java.io.IOException;
 
 import java.io.PrintWriter;
+import java.util.Date;
 
 
 @WebServlet("/user-api")
 public class UserApiServlet extends HttpServlet {
-
     private final UserService userService = new UserService(new JpaUserRepository());
-    private final JpaUserRepository userRepository = new JpaUserRepository();
+//    private final JpaUserRepository userRepository = new JpaUserRepository();
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
-        JpaUserRepository repository = new JpaUserRepository();
+//        JpaUserRepository repository = new JpaUserRepository();
 
     PrintWriter pw = null;
 
@@ -47,8 +47,8 @@ public class UserApiServlet extends HttpServlet {
         passwordHash = password;
     }
 
-    DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy/MM/dd HH:mm:ss");
-    LocalDateTime registeredAt = LocalDateTime.now();
+//    DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy/MM/dd HH:mm:ss");
+    String registeredAt = String.valueOf(new Date().getTime());
 
         CreateUserDto userDto = new CreateUserDto();
         userDto.setFirstName(firstName);
@@ -56,7 +56,7 @@ public class UserApiServlet extends HttpServlet {
         userDto.setEmail(email);
         userDto.setPasswordHash(password);
         userDto.setRegisteredAt(registeredAt);
-        userDto.setLastLogin(null);
+        userDto.setLastLogin(registeredAt);
 
         userService.addUser(userDto);
 

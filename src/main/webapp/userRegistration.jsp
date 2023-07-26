@@ -5,9 +5,10 @@
       String lastName = request.getParameter("lastName");
       String email = request.getParameter("email");
       String passwordHash = request.getParameter("password");
+      String registeredAt = request.getParameter("date");
+      String lastLogin = registeredAt;
 
-
-      User user = new User(firstName, lastName, email, passwordHash, null, null);
+      User user = new User(firstName, lastName, email, passwordHash, registeredAt, lastLogin);
 
       JpaUserRepository userRepo = new JpaUserRepository();
 

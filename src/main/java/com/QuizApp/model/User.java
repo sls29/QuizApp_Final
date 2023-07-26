@@ -25,11 +25,11 @@ public class User {
     private String lastName;
     private String email;
     private String passwordHash;
-    private LocalDateTime registeredAt;
-    private LocalDateTime lastLogin;
+    private String registeredAt;
+    private String lastLogin;
 
     public User (String firstName, String lastName, String email,
-                 String passwordHash, LocalDateTime registeredAt, LocalDateTime lastLogin) {
+                 String passwordHash, String registeredAt, String lastLogin) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.email = email;
