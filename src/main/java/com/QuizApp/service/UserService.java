@@ -10,6 +10,7 @@ public class UserService {
     private final JpaUserRepository jpaUserRepository;
 
     public UserService(JpaUserRepository jpaUserRepository) {
+
         this.jpaUserRepository = null;
     }
 
@@ -19,7 +20,9 @@ public class UserService {
                     "lastName was {}, email was {}").formatted(createUserDto.getFirstName(),
                     createUserDto.getLastLogin(), createUserDto.getEmail()));
         }
+
         User user = new User();
+
         user.setFirstName(createUserDto.getFirstName());
         user.setLastName(createUserDto.getLastName());
         user.setEmail(createUserDto.getEmail());
