@@ -1,7 +1,8 @@
 <%@ page contentType="text/html; charset=UTF-8" %>
-<%@ page import="java.util.List" %>
+<%@ page import="java.util.*" %>
 <%@ page import="com.QuizApp.repository.JpaUserRepository" %>
 <%@ page import="com.QuizApp.model.User" %>
+<%@ page import="java.time.LocalDateTime" %>
 
 
 <html>
@@ -55,7 +56,7 @@
         </div>
         <div class="column" style="backgroud-color:#aaa;">
             <h2>User Registration</h2>
-                <form action="userRegistration.jsp">
+                <form action="user-api" method="POST">
                     <br/>
                     <div class="form-outline mb-4">
                         <input type="text" name="firstName" value="firstName..." onclick="this.value=''"/><br/>

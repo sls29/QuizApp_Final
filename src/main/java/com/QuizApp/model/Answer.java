@@ -18,12 +18,12 @@ public class Answer {
     @GeneratedValue (strategy = GenerationType.IDENTITY)
     private int id;
     private int active;
-    private int corect;
+    private int correct;
     private String content;
 
-    public Answer (int active, int corect, String content) {
+    public Answer (int active, int correct, String content) {
         this.active = active;
-        this.corect = corect;
+        this.correct = correct;
         this.content = content;
     }
 

@@ -3,15 +3,13 @@ package com.QuizApp.service;
 import com.QuizApp.model.User;
 import com.QuizApp.model.dto.CreateUserDto;
 import com.QuizApp.repository.JpaUserRepository;
+import lombok.RequiredArgsConstructor;
 
 import java.util.regex.Pattern;
-
+@RequiredArgsConstructor
 public class UserService {
     private final JpaUserRepository jpaUserRepository;
 
-    public UserService(JpaUserRepository jpaUserRepository) {
-        this.jpaUserRepository = null;
-    }
 
     public void addUser(CreateUserDto createUserDto){
         if (!validateUserData(createUserDto)) {
@@ -19,7 +17,9 @@ public class UserService {
                     "lastName was {}, email was {}").formatted(createUserDto.getFirstName(),
                     createUserDto.getLastLogin(), createUserDto.getEmail()));
         }
+
         User user = new User();
+
         user.setFirstName(createUserDto.getFirstName());
         user.setLastName(createUserDto.getLastName());
         user.setEmail(createUserDto.getEmail());
