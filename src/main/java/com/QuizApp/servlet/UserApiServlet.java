@@ -21,25 +21,26 @@ import java.util.Date;
 @WebServlet("/user-api")
 public class UserApiServlet extends HttpServlet {
     private final UserService userService = new UserService(new JpaUserRepository());
-//    private final JpaUserRepository userRepository = new JpaUserRepository();
+    private final JpaUserRepository userRepository = new JpaUserRepository();
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
-//        JpaUserRepository repository = new JpaUserRepository();
+    JpaUserRepository repository = new JpaUserRepository();
 
     PrintWriter pw = null;
 
-    String firstName = req.getParameter("add_firstName");
-    String lastName = req.getParameter("add_lastName");
-    String email = req.getParameter("add_email");
-    String password = req.getParameter("add_password");
-    String passwordCk = req.getParameter("add_password2");
+    String firstName = req.getParameter("firstName");
+    String lastName = req.getParameter("lastName");
+    String email = req.getParameter("email");
+    String password = req.getParameter("password");
+    String passwordCk = req.getParameter("password2");
 
     pw = resp.getWriter();
 
-        String passwordHash = null;
-        if (password != passwordCk) {
+    String passwordHash = null;
+
+        if (!password.equals(passwordCk)) {
         pw.println("<h1 style='text-align:center'>"+
                 "Password don't match </h1>");
 
@@ -47,8 +48,11 @@ public class UserApiServlet extends HttpServlet {
         passwordHash = password;
     }
 
-//    DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy/MM/dd HH:mm:ss");
-    String registeredAt = String.valueOf(new Date().getTime());
+    DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy/MM/dd HH:mm:ss");
+    LocalDateTime now = LocalDateTime.now();
+    String registeredAt = dtf.format(now);
+
+
 
         CreateUserDto userDto = new CreateUserDto();
         userDto.setFirstName(firstName);

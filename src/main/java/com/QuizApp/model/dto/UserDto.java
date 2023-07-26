@@ -3,7 +3,6 @@ package com.QuizApp.model.dto;
 import com.QuizApp.model.User;
 import lombok.Data;
 
-import java.time.LocalDateTime;
 
 @Data
 public class UserDto {
@@ -12,8 +11,8 @@ public class UserDto {
     private String lastName;
     private String email;
     private String passwordHash;
-    private LocalDateTime registeredAt;
-    private LocalDateTime lastLogin;
+    private String registeredAt;
+    private String lastLogin;
 
     public static UserDto toDto(User user){
         UserDto userDto = new UserDto();

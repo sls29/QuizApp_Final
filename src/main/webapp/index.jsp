@@ -56,7 +56,7 @@
         </div>
         <div class="column" style="backgroud-color:#aaa;">
             <h2>User Registration</h2>
-                <form action="/user-api">
+                <form action="user-api" method="POST">
                     <br/>
                     <div class="form-outline mb-4">
                         <input type="text" name="firstName" value="firstName..." onclick="this.value=''"/><br/>
@@ -72,9 +72,6 @@
                     </div>
                     <div class="form-outline mb-4">
                        <input type="text" name="password2"  value="Password..." onclick="this.value=''"/><br/>
-                    </div>
-                    <div class="form-outline mb-4">
-                       <input type="text" name="date"  value<%=(new java.util.Date()).toLocaleString()%>/><br/>
                     </div>
                     <br/>
                         <input type="submit" value="userRegistration" class="btn btn-primary btn-block"/>
