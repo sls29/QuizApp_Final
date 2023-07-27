@@ -43,7 +43,6 @@ public class UserApiServlet extends HttpServlet {
         userDto.setLastLogin(registeredAt);
 
     userService.addUser(userDto);
-    resp.getOutputStream().println("<h1 style='text-align:center'>"+
-                                        "User Added ! </h1>");
+    resp.getOutputStream().println("<h1 style='text-align:center'</h1><a href='index.jsp'>User added! Please login</a>");
     }
 }
