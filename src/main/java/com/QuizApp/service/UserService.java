@@ -17,19 +17,17 @@ import java.util.regex.Pattern;
 public class UserService {
     private final JpaUserRepository jpaUserRepository;
 
-    public boolean validateLoginUser(String email, String password) {
-        if (!findUser(jpaUserRepository.getAllUsers(), email)) {
+    public boolean validateUserLogin(String email, String password) {
+        if (!findUser(jpaUserRepository.getAllUsers(), email, password)) {
             return false;
         } else {
             return true;
         }
     }
 
-
-    public boolean findUser(List<User> userList, String email) {
-        return (userList.stream().filter(p -> p.getEmail().equals(email)).findAny().isPresent());
+    public boolean findUser(List<User> userList, String email, String password) {
+        return (userList.stream().anyMatch(p -> p.getEmail().equals(email)&&p.getPasswordHash().equals(password)));
     }
-
 
     public void addUser(
             CreateUserDto createUserDto){

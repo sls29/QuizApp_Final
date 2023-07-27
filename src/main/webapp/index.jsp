@@ -48,7 +48,7 @@
                         <input type="text" name="eemail" value="Email..." onclick="this.value=''"/><br/>
                     </div>
                     <div class="form-outline mb-4">
-                        <input type="text" name="ppassword"  value="Password..." onclick="this.value=''"/><br/>
+                        <input type="password" name="ppassword"  value="Password..." onclick="this.value=''"/><br/>
                     </div>
                     <br/>
                         <input type="submit" value="Login" class="btn btn-primary btn-block"/>

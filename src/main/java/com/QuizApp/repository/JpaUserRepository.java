@@ -14,14 +14,14 @@ public class JpaUserRepository {
         entityManager.getTransaction().begin();
         entityManager.persist(user);
         entityManager.getTransaction().commit();
-        entityManager.close();
+//        entityManager.close();
     }
 
     public List<User> getAllUsers () {
         TypedQuery<User> typedQuery = entityManager.createQuery("select u from User u", User.class);
         List<User> userList = typedQuery.getResultList();
-        entityManager.close();
-        emFactory.close();
+//        entityManager.close();
+//        emFactory.close();
         return userList;
     }
 }

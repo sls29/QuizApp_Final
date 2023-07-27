@@ -28,11 +28,11 @@ public class LoginApiServlet extends HttpServlet {
         String email = req.getParameter("eemail");
         String password = req.getParameter("ppassword");
 
-        if(userService.validateLoginUser(email, password)) {
+        if(userService.validateUserLogin(email, password)) {
             RequestDispatcher rs = req.getRequestDispatcher("/welcome");
             rs.forward(req, resp);
         } else {
-            out.println("Email not registered");
+            out.println("Incorect Email or Password");
             RequestDispatcher rs = req.getRequestDispatcher("index.jsp");
             rs.include(req, resp);
         }
