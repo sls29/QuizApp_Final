@@ -20,7 +20,8 @@ public class UserApiServlet extends HttpServlet {
     private final UserService userService = new UserService(new JpaUserRepository());
     PasswordService passwordService = new PasswordService();
     @Override
-    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+    protected void doPost(HttpServletRequest req, HttpServletResponse resp)
+            throws ServletException, IOException {
 
     String firstName = req.getParameter("firstName");
     String lastName = req.getParameter("lastName");

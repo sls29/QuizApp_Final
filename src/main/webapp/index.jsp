@@ -42,7 +42,7 @@
     <div class="row">
         <div class="column" style="background-color:#bbb;">
             <h2>User Login</h2>
-                <form action="userLogin.jsp">
+                <form action="login-api" method="POST">
                     <br/>
                     <div class="form-outline mb-4">
                         <input type="text" name="eemail" value="Email..." onclick="this.value=''"/><br/>
