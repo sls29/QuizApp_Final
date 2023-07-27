@@ -10,28 +10,25 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.util.Iterator;
 import java.util.List;
+import java.util.Optional;
 import java.util.regex.Pattern;
 
 @RequiredArgsConstructor
 public class UserService {
     private final JpaUserRepository jpaUserRepository;
 
-    public boolean checkUser(String email, String password) {
-        List<User> userList = jpaUserRepository.getAllUsers();
-        Iterator<User> li = userList.iterator();
-
-            while (li.hasNext()) {
-                String em = li.next().getEmail().toString();
-                String ps = li.next().getPasswordHash().toString();
-            if ((email.equals(em)) && (password.equals(ps))) {
-                    return true;
-                }
-            }
-        return false;
+    public boolean validateLoginUser(String email, String password) {
+        if (!findUser(jpaUserRepository.getAllUsers(), email)) {
+            return false;
+        } else {
+            return true;
+        }
     }
 
 
-
+    public boolean findUser(List<User> userList, String email) {
+        return (userList.stream().filter(p -> p.getEmail().equals(email)).findAny().isPresent());
+    }
 
 
     public void addUser(
