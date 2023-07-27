@@ -3,15 +3,36 @@ package com.QuizApp.service;
 import com.QuizApp.model.User;
 import com.QuizApp.model.dto.CreateUserDto;
 import com.QuizApp.repository.JpaUserRepository;
+import jakarta.persistence.TypedQuery;
 import lombok.RequiredArgsConstructor;
 
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.util.Iterator;
+import java.util.List;
+import java.util.Optional;
 import java.util.regex.Pattern;
+
 @RequiredArgsConstructor
 public class UserService {
     private final JpaUserRepository jpaUserRepository;
 
+    public boolean validateLoginUser(String email, String password) {
+        if (!findUser(jpaUserRepository.getAllUsers(), email)) {
+            return false;
+        } else {
+            return true;
+        }
+    }
 
-    public void addUser(CreateUserDto createUserDto){
+
+    public boolean findUser(List<User> userList, String email) {
+        return (userList.stream().filter(p -> p.getEmail().equals(email)).findAny().isPresent());
+    }
+
+
+    public void addUser(
+            CreateUserDto createUserDto){
         if (!validateUserData(createUserDto)) {
             throw new RuntimeException(("invalid data for user: firstName was {}, " +
                     "lastName was {}, email was {}").formatted(createUserDto.getFirstName(),
