@@ -13,7 +13,7 @@ public class Welcome extends HttpServlet {
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         PrintWriter out = response.getWriter();
-        out.println("Welcome user");
+        out.println("Welcome ");
         out.println("<br/>");
         out.println("<h1 style='text-align:center'</h1><a href='/logout-api'>Logout</a>");
 

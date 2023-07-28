@@ -4,4 +4,16 @@
 
 <web-app>
   <display-name>Archetype Created Web Application</display-name>
+  <servlet>
+    <servlet-name>DisplaySessionValueServlet</servlet-name>
+    <servlet-class>
+      com.w3spoint.business.DisplaySessionValueServlet
+    </servlet-class>
+  </servlet>
+
+  <servlet-mapping>
+    <servlet-name>DisplaySessionValueServlet</servlet-name>
+    <url-pattern>/DisplaySessionValueServlet</url-pattern>
+  </servlet-mapping>
+
 </web-app>

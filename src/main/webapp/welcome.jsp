@@ -17,29 +17,24 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
         <style>
-        * {
-              box-sizing: border-box;
-            }
-
+        {
+            box-sizing: border-box;
+        }
         </style>
 
         <title>Welcome Page</title>
     </head>
+
     <body>
-
-        <form action="logout-api" method="get">
-
-        <h2>
-            Hello
-            <%=request.getParameter("name")%>!
-        </h2>
-        <h3>Welcome to QuizApp</h3>
-
-        <br/>
-         <div class="form-outline mb-4">
-            <input type="submit" value="Logout" />
-         </div>
-    </form>
-
+        <div class = "row">
+            <form action="logout-api" method="get">
+                <h2>Hello <%=request.getParameter("email")%>!</h2>
+                <h3>Welcome to QuizApp</h3>
+                <br/>
+                <div class="form-outline mb-4">
+                    <input type="submit" value="Logout" class="btn btn-primary btn-block" />
+                </div>
+            </form>
+        </div>
     </body>
 </html>

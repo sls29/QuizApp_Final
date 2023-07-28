@@ -15,6 +15,7 @@ import lombok.RequiredArgsConstructor;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.io.Serial;
+import java.util.Date;
 
 //import static jakarta.faces.component.UIWebsocket.PropertyKeys.user;
 
@@ -35,18 +36,24 @@ public class LoginApiServlet extends HttpServlet {
         resp.setContentType("text/html; charset=UTF-8");
         PrintWriter out = resp.getWriter();
 
-        HttpSession session = req.getSession();
+
 
         String email = req.getParameter("eemail");
         String password = req.getParameter("ppassword");
 
         if(userService.validateUserLogin(email, password)) {
 
-            session.setAttribute("email", user);
-            RequestDispatcher rs = req.getRequestDispatcher("welcome.jsp");
-            rs.forward(req, resp);
+            HttpSession session = req.getSession(true);
+
+            session.setAttribute("email", email);
+            out.println("Logged in successfully.<br/>");
+            out.println("SessionID: "+session.getId() + "<br/>");
+            out.println("Creation time: " + new Date(session.getCreationTime()) + "<br/>");
+            out.println("<a href='DisplaySessionValueServlet'>" + "Click here</a>");
+//            RequestDispatcher rs = req.getRequestDispatcher("welcome.jsp");
+//            rs.forward(req, resp);
         } else {
-            out.println("Incorect Email or Password");
+            out.println("Incorrect Email or Password");
             RequestDispatcher rs = req.getRequestDispatcher("index.jsp");
             rs.include(req, resp);
         }
