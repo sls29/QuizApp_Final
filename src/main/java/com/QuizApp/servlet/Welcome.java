@@ -14,5 +14,8 @@ public class Welcome extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         PrintWriter out = response.getWriter();
         out.println("Welcome user");
+        out.println("<br/>");
+        out.println("<h1 style='text-align:center'</h1><a href='/logout-api'>Logout</a>");
+
     }
 }
