@@ -4,6 +4,8 @@
 <%@ page import="com.QuizApp.model.User" %>
 <%@ page import="java.time.LocalDateTime" %>
 
+<% response.setHeader("Cache-Control", "no-cache, no-store"); %>
+
 
 <html>
     <head>
@@ -14,11 +16,8 @@
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.2/font/bootstrap-icons.css">
         <link rel="stylesheet" href="https://unpkg.com/bootstrap-table@1.21.4/dist/bootstrap-table.min.css">
 
-        <meta name="viewport" content="width=device-width, initial-scale=1">
         <style>
-        {
-            box-sizing: border-box;
-        }
+        { box-sizing: border-box; }
 
     /* Create two equal columns that floats next to each other */
     .column {

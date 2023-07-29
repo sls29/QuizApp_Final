@@ -20,11 +20,16 @@ public class Answer {
     private int active;
     private int correct;
     private String content;
+    @ManyToOne(fetch = FetchType.LAZY)
+    private int question_id;
 
-    public Answer (int active, int correct, String content) {
+
+
+    public Answer (int active, int correct, String content, int question_id) {
         this.active = active;
         this.correct = correct;
         this.content = content;
+        this.question_id = question_id;
     }
 
 }

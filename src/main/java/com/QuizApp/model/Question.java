@@ -6,6 +6,8 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
 
+import java.util.Set;
+
 @Getter
 @Setter
 @ToString
@@ -13,10 +15,14 @@ import lombok.ToString;
 @Table (name = "questions")
 @NoArgsConstructor
 
+
 public class Question {
 
     @Id
     @GeneratedValue (strategy = GenerationType.IDENTITY)
+    @OneToMany (mappedBy = "question")
+    private Set<Answer> answers;
+
     private int id;
     private String name;
     private String type;
@@ -24,6 +30,7 @@ public class Question {
     private int level;
     private int score;
     private String content;
+
 
     public Question( String name, String type, int active, int level, int score, String content){
         this.name = name;

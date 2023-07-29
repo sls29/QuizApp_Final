@@ -8,7 +8,6 @@
 
 <html>
     <head>
-
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         <title>Quiz Application</title>
@@ -17,29 +16,22 @@
         <link rel="stylesheet" href="https://unpkg.com/bootstrap-table@1.21.4/dist/bootstrap-table.min.css">
 
         <style>
-            { box-sizing: border-box; }
+        { box-sizing: border-box;}
         </style>
 
     </head>
+
     <body>
         <div class = "row">
-             <h2>Hello <%=request.getParameter("email")%>!</h2>
-             <h3>Go to QuizApp</h3>
-             <br/>
+              <h2>Goodbye!</h2>
+              <br/>
         </div>
         <div class = "row">
-             <form action="quiz.jsp" method="get">
-                 <div class="form-outline mb-4">
-                     <input type="submit" value="Go to quiz" class="btn btn-primary btn-block" />
-                 </div>
-             </form>
-        </div>
-        <div class = "row">
-            <form action="logout-api" method="get">
-                <h3>Logout</h3>
+            <form action="index.jsp" method="get">
+                <h3>Go to Login Page</h3>
                 <br/>
                 <div class="form-outline mb-4">
-                    <input type="submit" value="Logout" class="btn btn-primary btn-block" />
+                    <input type="submit" value="Go to Login" class="btn btn-primary btn-block" />
                 </div>
             </form>
         </div>
