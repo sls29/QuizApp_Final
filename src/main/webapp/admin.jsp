@@ -42,7 +42,7 @@
             <div class="column" style="background-color:#bbb;">
                 <h2>Registered Users</h2>
                 <br/>
-                <form action="/admin-api" method="POST">
+                <form action="admin-api" method="POST">
                      <div class="form-outline mb-4">
                           <input type="text" name="email" value="Email..." onclick="this.value=''"/><br/>
                      </div>

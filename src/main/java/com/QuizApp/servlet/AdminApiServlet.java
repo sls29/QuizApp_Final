@@ -27,7 +27,8 @@ public class AdminApiServlet extends HttpServlet {
         } catch (Exception e) {
             out.println(e.getMessage());
         }
-        resp.getOutputStream().println("<h1 style='text-align:center'</h1><a href='index.jsp'>User deleted!</a>");
+//        out.println("User deleted");
+//        resp.getOutputStream().println("<h1 style='text-align:center'</h1><a href='index.jsp'>User deleted!</a>");
 
     }
 
