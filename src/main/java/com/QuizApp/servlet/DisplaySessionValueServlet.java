@@ -9,10 +9,10 @@ import jakarta.servlet.http.HttpSession;
 import java.io.IOException;
 import java.io.PrintWriter;
 
-public class DisplaySessiunValueServlet extends HttpServlet {
+public class DisplaySessionValueServlet extends HttpServlet {
     private static final long serialVersionUID = 1L;
 
-    public DisplaySessiunValueServlet () {
+    public DisplaySessionValueServlet () {
 
     }
     protected void doGet(HttpServletRequest req, HttpServletResponse resp)

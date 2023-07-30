@@ -20,7 +20,7 @@ public class Answer {
     private int active;
     private int correct;
     private String content;
-    @ManyToOne(fetch = FetchType.LAZY)
+//    @ManyToOne(fetch = FetchType.LAZY)
     private int question_id;
 
 

@@ -8,7 +8,6 @@
 
 <html>
     <head>
-
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         <title>Quiz Application</title>
@@ -37,12 +36,16 @@
 
     </head>
     <body>
+
         <title>Administration page</title>
         <div class = "row">
             <div class="column" style="background-color:#bbb;">
                 <h2>Registered Users</h2>
                 <br/>
-                <form action="/user-api" method="get">
+                <form action="/admin-api" method="POST">
+                     <div class="form-outline mb-4">
+                          <input type="text" name="email" value="Email..." onclick="this.value=''"/><br/>
+                     </div>
                      <div class="form-outline mb-4">
                           <input type="submit" value="Delete User" class="btn btn-primary btn-block" />
                      </div>

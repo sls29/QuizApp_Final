@@ -45,36 +45,35 @@ public class LoginApiServlet extends HttpServlet {
 
             session.setAttribute("email", email);
 
-            String val1="Logged in successfully.<br/>";
-            String val2="SessionID: "+session.getId() + "<br/>";
-            String val3="Creation time: " + new Date(session.getCreationTime()) + "<br/>";
+            String val1="Logged in successfully.";
+            String val2="SessionID: "+session.getId() ;
+            String val3="Creation time: " + new Date(session.getCreationTime());
 
-            out.println("<!DOCTYPE html>");
-            out.println("<html>");
-            out.println("<head>");
-            out.println("<title>Login Servlet Msg</title>");
-            out.println("</head>");
-            out.println("<body onLoad='showResult()'>");
-            out.println("<script type=\'text/javascrypt\'>");
-            out.println("function showResult(){");
-            out.println("alert("+val1+val2+val3+");");
-            out.println("}");
-            out.println("</script>");
-            out.println("</body>");
-            out.println("</html>");
+//            out.println("<!DOCTYPE html>");
+//            out.println("<html>");
+//            out.println("<head>");
+//            out.println("<title>Login Servlet Msg</title>");
+//            out.println("</head>");
+//            out.println("<body onLoad=\"showResult():\">");
+//            out.println("<script>");
+//            out.println("function showResult(){");
+//            out.println("alert(\""+val1+"\");");
+//            out.println("}");
+//            out.println("</script>");
+//            out.println("</body>");
+//            out.println("</html>");
 
-//            out.println("Logged in successfully.<br/>");
-//            out.println("SessionID: "+session.getId() + "<br/>");
-//            out.println("Creation time: " + new Date(session.getCreationTime()) + "<br/>");
-//            out.println("<a href='DisplaySessionValueServlet'>" + "Click here</a>");
-//            out.println("<br/>");
-//            out.println("<h1 style='text-align:center'</h1><a href='logout-api'>Logout</a>");
+            out.println("Logged in successfully");
+            out.println("SessionID: "+session.getId());
+            out.println("Creation time: " + new Date(session.getCreationTime()));
+            out.println("<a href='DisplaySessionValueServlet'>" + "Click here</a>");
+            out.println("<br/>");
+            out.println("<h1 style='text-align:center'</h1><a href='logout-api'>Logout</a>");
             resp.setHeader("Cache-Control","no-cache");
             resp.setHeader("Cache-Control","no-store");
             RequestDispatcher rs = req.getRequestDispatcher("welcome.jsp");
             rs.forward(req, resp);
         } else {
-
             String val1="Incorrect Email or Password";
             out.println("<!DOCTYPE html>");
             out.println("<html>");

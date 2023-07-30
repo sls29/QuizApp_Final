@@ -17,6 +17,15 @@ public class JpaUserRepository {
 //        entityManager.close();
     }
 
+    public void findAndDeleteUserByEmail(String email){
+        TypedQuery<User> typesQuery = entityManager.createQuery("select u from User u WHERE u.email=:email", User.class);
+        typesQuery.setParameter("email", email);
+        entityManager.getTransaction().begin();
+        entityManager.remove(typesQuery.getSingleResult());
+        entityManager.flush();
+        entityManager.getTransaction().commit();
+    }
+
     public List<User> getAllUsers () {
         TypedQuery<User> typedQuery = entityManager.createQuery("select u from User u", User.class);
         List<User> userList = typedQuery.getResultList();

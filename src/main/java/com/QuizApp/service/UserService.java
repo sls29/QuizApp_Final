@@ -49,6 +49,10 @@ public class UserService {
         jpaUserRepository.userRegistration(user);
     }
 
+    public void deleteUser (String email){
+        jpaUserRepository.findAndDeleteUserByEmail(email);
+    }
+
     public boolean validateUserData(CreateUserDto userDto) {
         String emailValidationPattern = "^(.+)@(.+)$";
         boolean emailIsOK = userDto.getEmail() != null && Pattern.compile(emailValidationPattern)
