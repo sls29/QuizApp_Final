@@ -3,6 +3,8 @@ package com.QuizApp.servlet;
 import com.QuizApp.model.dto.CreateAnswerDto;
 import com.QuizApp.model.dto.CreateQuestionDto;
 import com.QuizApp.model.Answer;
+import com.QuizApp.repository.JpaQuestionRepository;
+import com.QuizApp.service.QuestionService;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
@@ -17,6 +19,7 @@ import java.util.List;
 
 
 public class QuestionApiServlet extends HttpServlet {
+    private final QuestionService questionService = new QuestionService(new JpaQuestionRepository())
 
     protected void doPost(HttpServletRequest req, HttpServletResponse resp)
             throws ServletException, IOException {
@@ -72,7 +75,7 @@ public class QuestionApiServlet extends HttpServlet {
             answers.add(answerDto1);
             answers.add(answerDto2);
 
-            QuestionService.addQuestion(questionDto, answers);
+            questionService.addQuestion(questionDto, (LinkedList<CreateAnswerDto>) answers);
 
          }
     }
