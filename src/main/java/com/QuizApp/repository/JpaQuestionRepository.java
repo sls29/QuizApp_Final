@@ -16,6 +16,13 @@ public class JpaQuestionRepository {
         entityManager.getTransaction().begin();
         entityManager.persist(question);
         entityManager.getTransaction().commit();
+
+        for (Answer answer : answersList) {
+            entityManager.getTransaction().begin();
+            entityManager.persist(answer);
+            entityManager.getTransaction().commit();
+        }
+
 //        entityManager.close();
 
     }

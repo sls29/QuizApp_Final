@@ -31,7 +31,7 @@ public class QuestionApiServlet extends HttpServlet {
             PrintWriter out = resp.getWriter();
             String lineText = null;
             int count = 0;
-            lineReader.readLine(); // skip header line
+//            lineReader.readLine(); // skip header line
 
             while ((lineText = lineReader.readLine()) != null) {
                 String[] questions = lineText.split(",");
