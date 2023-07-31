@@ -8,19 +8,18 @@ import com.QuizApp.repository.JpaQuestionRepository;
 import lombok.RequiredArgsConstructor;
 
 import java.util.LinkedList;
-import java.util.List;
+import java.util.*;
 import java.util.Objects;
 
 @RequiredArgsConstructor
-
 public class QuestionService {
     private final JpaQuestionRepository jpaQuestionRepository;
 
     public void addQuestion(CreateQuestionDto createQuestionDto,
                             LinkedList<CreateAnswerDto> answers) {
-//        if (!validateQuestion(createQuestionDto) && !validateAnswers( answers)) {
-//            throw new RuntimeException("Check the question list for consistence");
-//        }
+        if (!validateQuestion(createQuestionDto) && !validateAnswers( answers)) {
+            throw new RuntimeException("Check the question list for consistence");
+        }
         Question question = new Question();
         question.setName(createQuestionDto.getName());
         question.setType(createQuestionDto.getType());
@@ -40,13 +39,17 @@ public class QuestionService {
             answersList.add(answer);
         }
             jpaQuestionRepository.questionImport(question, answersList);
+    }
 
-//    public boolean validateQuestion(CreateQuestionDto questionDto) {
-//            return questionDto.getContent() != null;
-//    }
-//
-//    public boolean validateAnswers(LinkedList<CreateAnswerDto> answers){
-//            return answers.stream().anyMatch(Objects::nonNull);
-//    }
+    private boolean validateAnswers(LinkedList<CreateAnswerDto> answers) {
+        boolean answerIsOk = answers.stream().anyMatch(Objects::nonNull);
+
+        return answerIsOk;
+    }
+
+    private boolean validateQuestion(CreateQuestionDto createQuestionDto) {
+        boolean questionIsOk = createQuestionDto.getContent() != null;
+
+        return questionIsOk;
     }
 }

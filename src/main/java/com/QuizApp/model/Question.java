@@ -20,8 +20,8 @@ public class Question {
 
     @Id
     @GeneratedValue (strategy = GenerationType.IDENTITY)
-    @OneToMany (mappedBy = "questions")
-    private Set<Answer> answers;
+//    @OneToMany (mappedBy = "questions")
+//    private Set<Answer> answers;
 
     private int id;
     private String name;
