@@ -6,9 +6,11 @@ import com.QuizApp.model.Answer;
 import com.QuizApp.repository.JpaQuestionRepository;
 import com.QuizApp.service.QuestionService;
 import jakarta.servlet.ServletException;
+import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import lombok.RequiredArgsConstructor;
 
 
 import java.io.BufferedReader;
@@ -17,9 +19,9 @@ import java.io.IOException;
 import java.util.LinkedList;
 import java.util.List;
 
-
+@WebServlet("/question-api")
 public class QuestionApiServlet extends HttpServlet {
-    private final QuestionService questionService = new QuestionService(new JpaQuestionRepository())
+    private final QuestionService questionService = new QuestionService(new JpaQuestionRepository());
 
     protected void doPost(HttpServletRequest req, HttpServletResponse resp)
             throws ServletException, IOException {
