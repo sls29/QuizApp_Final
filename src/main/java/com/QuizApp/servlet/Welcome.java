@@ -16,6 +16,5 @@ public class Welcome extends HttpServlet {
         out.println("Welcome ");
         out.println("<br/>");
         out.println("<h1 style='text-align:center'</h1><a href='/logout-api'>Logout</a>");
-
     }
 }

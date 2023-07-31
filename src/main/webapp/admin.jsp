@@ -82,7 +82,7 @@
             <div class="column" style="background-color:#aaa;">
                 <h2>Generated Quizes</h2>
                 <br/>
-                <form action="/question-api" method="post">
+                <form action="question-api" method="post">
                     <div class="form-outline mb-4">
                          <input type="submit" value="Add Questions" class="btn btn-primary btn-block" />
                     </div>

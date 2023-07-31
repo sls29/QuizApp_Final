@@ -32,20 +32,14 @@ public class QuestionService {
         LinkedList<Answer> answersList = new LinkedList<>();
 
         Answer answer = new Answer();
-
         for (CreateAnswerDto createAnswerDto : answers) {
-
             answer.setActive(createAnswerDto.getActive());
             answer.setCorrect(createAnswerDto.getCorrect());
             answer.setContent(createAnswerDto.getContent());
             answer.setQuestion(createAnswerDto.getQuestion());
-
             answersList.add(answer);
         }
-
             jpaQuestionRepository.questionImport(question, answersList);
-
-
 
 //    public boolean validateQuestion(CreateQuestionDto questionDto) {
 //            return questionDto.getContent() != null;

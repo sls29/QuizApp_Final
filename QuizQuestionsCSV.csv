@@ -1,6 +1,6 @@
 Who invented Java Programming?,Java,1,James Gosling,1,Guido van Rossum,0,Dennis Ritchie,0
-Which statement is true about Java?,Java,1,Java is a platform-independent programming language,1,Java is a sequence-dependent programming language,0,Java is a code dependent programming language,0
-"Which component is used to compile, debug and execute the java programs?",Java,1,JDK,1,JVM,0,JRE,0
+Which statement is true about Java?,Java,1,Java is a platform independent programming language,1,Java is a sequence dependent programming language,0,Java is a code dependent programming language,0
+Which component is used to compile debug and execute the java programs?,Java,1,JDK,1,JVM,0,JRE,0
 Which one of the following is not a Java feature?,Java,2,Use of pointers,1,Object-oriented,0,Dynamic and Extensible,0
 Which of these cannot be used for a variable name in Java?,Java,2,keyword,1,identifier & keyword,0,none of the mentioned,0
 What is the range of short data type in Java?,Java,1,-32768 to 32767,1,-2147483648 to 2147483647,0,-128 to 127,0
@@ -20,7 +20,7 @@ A class member declared protected becomes a member of subclass of which type?,Ja
 Which of these is correct way of inheriting class A by class B?,Java,2,class B extends A {},1,class B + class A {},0,class B inherits class A {},0
 Which of the below does not implement Map interface?,Java,2,Vector,1,Hashtable,0,HashMap,0
 What happens if we put a key object in a HashMap which exists?,Java,2,The new object replaces the older object,1,The old object is removed from the map,0,The new object is discarded,0
-"While finding the correct location for saving key value pair, how many times the key is hashed?",Java,1,2,1,1,0,3,0
+While finding the correct location for saving key value pair  how many times the key is hashed?,Java,1,2,1,1,0,3,0
 What is the use of try & catch?,Java,1,All of the mentioned,1,It prevents automatic terminating of the program in cases when an exception occurs,0,It allows us to manually handle the exception,0
 Which of these keywords are used for the block to be examined for exceptions?,Java,1,try,1,catch,0,throw,0
 JUnits are used for which type of testing?,Java,2,Unit Testing,1,System Testing,0,Integration Testing,0
