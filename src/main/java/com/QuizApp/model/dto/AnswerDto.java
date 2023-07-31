@@ -1,6 +1,9 @@
 package com.QuizApp.model.dto;
 
 import com.QuizApp.model.Answer;
+import com.QuizApp.model.Question;
+
+
 import lombok.Data;
 
 @Data

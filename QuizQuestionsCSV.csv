@@ -1,0 +1,34 @@
+Who invented Java Programming?,Java,1,James Gosling,1,Guido van Rossum,0,Dennis Ritchie,0
+Which statement is true about Java?,Java,1,Java is a platform-independent programming language,1,Java is a sequence-dependent programming language,0,Java is a code dependent programming language,0
+"Which component is used to compile, debug and execute the java programs?",Java,1,JDK,1,JVM,0,JRE,0
+Which one of the following is not a Java feature?,Java,2,Use of pointers,1,Object-oriented,0,Dynamic and Extensible,0
+Which of these cannot be used for a variable name in Java?,Java,2,keyword,1,identifier & keyword,0,none of the mentioned,0
+What is the range of short data type in Java?,Java,1,-32768 to 32767,1,-2147483648 to 2147483647,0,-128 to 127,0
+What is the return type of a method that does not return any value?,Java,1,void,1,double,0,float,0
+What is the process of defining more than one method in a class differentiated by method signature?,Java,2,Function overloading,1,Function overriding,0,None of the mentioned,0
+Which of the following is a method having same name as that of it’s class?,Java,1,constructor,1,finalize,0,class,0
+Which of the following has the highest memory requirement?,Java,2,JVM,1,Stack,0,Class,0
+Where is a new object allocated memory?,Java,1,Young space,1,Old space,0,JVM,0
+String in Java is a?,Java,2,class,1,object,0,character array,0
+Which of these method of String class is used to obtain character at specified index?,Java,1,charAt(),1,Charat(),0,char(),0
+Which of these keywords is used to refer to member of base class from a subclass?,Java,2,super,1,upper,0,this,0
+Which of these class is superclass of every class in Java?,Java,1,Object class,1,String class,0,Abstract class,0
+Which of these method of Object class can clone an object?,Java,1,Object clone(),1,Objectcopy(),0,clone(),0
+Which of these method of Object class is used to obtain class of an object at run time?,Java,2,Class getclass(),1,void getclass(),0,get(),0
+Which of this keyword must be used to inherit a class?,Java,2,extends,1,extent,0,super,0
+A class member declared protected becomes a member of subclass of which type?,Java,1,private member,1,public member,0,static member,0
+Which of these is correct way of inheriting class A by class B?,Java,2,class B extends A {},1,class B + class A {},0,class B inherits class A {},0
+Which of the below does not implement Map interface?,Java,2,Vector,1,Hashtable,0,HashMap,0
+What happens if we put a key object in a HashMap which exists?,Java,2,The new object replaces the older object,1,The old object is removed from the map,0,The new object is discarded,0
+"While finding the correct location for saving key value pair, how many times the key is hashed?",Java,1,2,1,1,0,3,0
+What is the use of try & catch?,Java,1,All of the mentioned,1,It prevents automatic terminating of the program in cases when an exception occurs,0,It allows us to manually handle the exception,0
+Which of these keywords are used for the block to be examined for exceptions?,Java,1,try,1,catch,0,throw,0
+JUnits are used for which type of testing?,Java,2,Unit Testing,1,System Testing,0,Integration Testing,0
+Which of the below statement about JUnit is false?,Java,2,They cannot be run automatically,1,It is an open source framework,0,It provides test runners for running test,0
+How constructor can be used for a servlet?,Java,2,Initialization and Constructor function,1,Setup() method,0,Constructor function,0
+This set of Java Multiple Choice Questions & Answers (MCQs) focuses on “Java 8 features”.,Java,1,Serialization,1,Lambda Expression,0,Stream API,0
+What is the return type of lambda expression?,Java,2,Function,1,Object,0,void,0
+Which of the following is advantage of using JDBC connection pool?,Java,1,Better performance,1,Using less memory,0,Slow performance,0
+Which of the following is advantage of using PreparedStatement in Java?,Java,2,Prevents SQL injection,1,Slow performance,0,Encourages SQL injection,0
+Which class provides system independent server side implementation?,Java,2,ServerSocket,1,ServerReader,0,Socket,0
+Which version of Java introduced annotation?,Java,1,Java 5,1,Java 8,0,Java 6,0
