@@ -42,7 +42,7 @@ public class LogoutApiServlet extends HttpServlet {
         out.println("<title>Logout Servlet Msg</title>");
         out.println("</head>");
         out.println("<body onLoad='showResult()'>");
-        out.println("<script type=\'text/javascrypt\'>");
+        out.println("<script type=\'text/javascript\'>");
         out.println("function showResult(){");
         out.println("alert("+val1+val2+");");
         out.println("}");
