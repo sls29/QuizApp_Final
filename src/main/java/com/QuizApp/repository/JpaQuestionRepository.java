@@ -17,6 +17,7 @@ public class JpaQuestionRepository {
         entityManager.persist(question);
         entityManager.getTransaction().commit();
 
+        int size = answersList.size();
         for (Answer answer : answersList) {
             entityManager.getTransaction().begin();
             entityManager.persist(answer);
