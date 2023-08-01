@@ -17,7 +17,7 @@ import java.time.format.DateTimeFormatter;
 @WebServlet("/login-api")
 public class LoginApiServlet extends HttpServlet {
     @Serial
-    private static final long serialVersionUID = 1L;
+//    private static final long serialVersionUID = 1L;
     User user = new User();
     public LoginApiServlet(){
         super();
@@ -39,18 +39,17 @@ public class LoginApiServlet extends HttpServlet {
 
         if(userService.validateUserLogin(email, password)) {
 
+            DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy/MM/dd HH:mm:ss");
+            LocalDateTime now = LocalDateTime.now();
+            String loginTime = dtf.format(now);
+            userService.updateLastLoginDate(email, loginTime);
+
             HttpSession session = req.getSession(true);
             session.setAttribute("email", email);
             Cookie loginCookie = new Cookie("email", email);
             loginCookie.setMaxAge(15*60);
             resp.addCookie(loginCookie);
             resp.sendRedirect("welcome.jsp");
-
-            DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy/MM/dd HH:mm:ss");
-            LocalDateTime now = LocalDateTime.now();
-            String loginTime = dtf.format(now);
-
-            userService.updateLastLoginDate(email, loginTime);
 
         } else {
             RequestDispatcher rd = getServletContext().getRequestDispatcher("/index.jsp");

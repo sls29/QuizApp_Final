@@ -30,7 +30,7 @@ public class JpaUserRepository {
 
     public void updateLastLoginDate(String email, String loginTime){
         TypedQuery<User> typedQuery = entityManager.createQuery(
-                "update User u set u.lastlogin =:logintime where u.email=:email", User.class);
+                "update User u set u.lastLogin =:logintime where u.email=:email", User.class);
         typedQuery.setParameter("logintime", loginTime);
         typedQuery.setParameter("email", email);
         entityManager.getTransaction().begin();
@@ -42,8 +42,8 @@ public class JpaUserRepository {
     public List<User> getAllUsers () {
         TypedQuery<User> typedQuery = entityManager.createQuery("select u from User u", User.class);
         List<User> userList = typedQuery.getResultList();
-        entityManager.close();
-        emFactory.close();
+//        entityManager.close();
+//        emFactory.close();
         return userList;
     }
 }
