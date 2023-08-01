@@ -23,25 +23,37 @@
     </head>
     <body>
         <div class = "row">
-             <h2>Hello <%=request.getParameter("email")%>!</h2>
-             <h3>Go to QuizApp</h3>
+             <h1><%
+             String firstName = null;
+             Cookie[] cookies = request.getCookies();
+             if(cookies != null){
+                for(Cookie cookie : cookies){
+                    if(cookie.getName().equals("email")) firstName = cookie.getValue();
+                }
+             }
+             if(firstName == null) response.sendRedirect("index.jsp");
+             %></h1>
+             <h2>Hello <%=firstName%>, Login successful!</h2>
              <br/>
-        </div>
-        <div class = "row">
-             <form action="quiz.jsp" method="get">
-                 <div class="form-outline mb-4">
-                     <input type="submit" value="Go to quiz" class="btn btn-primary btn-block" />
-                 </div>
-             </form>
-        </div>
-        <div class = "row">
-            <form action="logout-api" method="get">
-                <h3>Logout</h3>
-                <br/>
-                <div class="form-outline mb-4">
-                    <input type="submit" value="Logout" class="btn btn-primary btn-block" />
+             <br/>
                 </div>
-            </form>
-        </div>
+                    <div class = "row">
+                    <form action="quiz.jsp" method="get">
+                    <br/>
+                    <h3>Go to QuizApp</h3>
+                        <div class="form-outline mb-4">
+                           <input type="submit" value="Go to quiz" class="btn btn-primary btn-block" />
+                        </div>
+                    </form>
+                </div>
+                <div class = "row">
+                    <form action="logout-api" method="get">
+                        <br/>
+                        <h3>Logout</h3>
+                    <div class="form-outline mb-4">
+                        <input type="submit" value="Logout" class="btn btn-primary btn-block" />
+                    </div>
+                    </form>
+                </div>
     </body>
 </html>

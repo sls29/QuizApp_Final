@@ -18,7 +18,6 @@
         <style>
             { box-sizing: border-box; }
 
-            /* Create two equal columns that floats next to each other */
             .column {
               float: left;
               width: 50%;
@@ -26,17 +25,14 @@
               height: 300px;
             }
 
-            /* Clear floats after the columns */
             .row:after {
               content: "";
               display: table;
               clear: both;
             }
         </style>
-
     </head>
     <body>
-
         <title>Administration page</title>
         <div class = "row">
             <div class="column" style="background-color:#bbb;">

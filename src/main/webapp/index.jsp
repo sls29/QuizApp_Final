@@ -67,10 +67,10 @@
                         <input type="text" name="email" value="Email..." onclick="this.value=''"/><br/>
                     </div>
                     <div class="form-outline mb-4">
-                       <input type="text" name="password"  value="Password..." onclick="this.value=''"/><br/>
+                       <input type="password" name="password"  value="Password..." onclick="this.value=''"/><br/>
                     </div>
                     <div class="form-outline mb-4">
-                       <input type="text" name="password2"  value="Password..." onclick="this.value=''"/><br/>
+                       <input type="password" name="password2"  value="Password..." onclick="this.value=''"/><br/>
                     </div>
                     <br/>
                         <input type="submit" value="userRegistration" class="btn btn-primary btn-block"/>
