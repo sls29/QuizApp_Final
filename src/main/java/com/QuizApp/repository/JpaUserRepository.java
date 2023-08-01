@@ -25,18 +25,18 @@ public class JpaUserRepository {
         entityManager.remove(typesQuery.getSingleResult());
         entityManager.flush();
         entityManager.getTransaction().commit();
-        entityManager.close();
+//        entityManager.close();
     }
 
     public void updateLastLoginDate(String email, String loginTime){
         TypedQuery<User> typedQuery = entityManager.createQuery(
-                "update User u set u.lastLogin =:logintime where u.email=:email", User.class);
-        typedQuery.setParameter("logintime", loginTime);
+                "select u from User u where email=:email", User.class);
         typedQuery.setParameter("email", email);
+        User user = typedQuery.getSingleResult();
         entityManager.getTransaction().begin();
-        entityManager.merge(loginTime);
+        user.setLastLogin(loginTime);
         entityManager.getTransaction().commit();
-        entityManager.close();
+//        entityManager.close();
     }
 
     public List<User> getAllUsers () {
