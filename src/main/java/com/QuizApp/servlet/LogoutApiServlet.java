@@ -46,9 +46,5 @@ public class LogoutApiServlet extends HttpServlet {
             resp.addCookie(loginCookie);
         }
         resp.sendRedirect("logout.jsp");
-
-//        RequestDispatcher rs = req.getRequestDispatcher("logout.jsp");
-//        rs.forward(req, resp);
-//        out.close();
     }
 }

@@ -18,28 +18,31 @@ public class JpaUserRepository {
     }
 
     public void findAndDeleteUserByEmail(String email){
-        TypedQuery<User> typesQuery = entityManager.createQuery("select u from User u WHERE u.email=:email", User.class);
+        TypedQuery<User> typesQuery = entityManager.createQuery(
+                "select u from User u WHERE u.email=:email", User.class);
         typesQuery.setParameter("email", email);
         entityManager.getTransaction().begin();
         entityManager.remove(typesQuery.getSingleResult());
         entityManager.flush();
         entityManager.getTransaction().commit();
-//        entityManager.close();
+        entityManager.close();
     }
 
     public void updateLastLoginDate(String email, String loginTime){
-        TypedQuery<User> typedQuery = entityManager.createQuery("update User u set u.lastlogin =:logintime where u.email=:email", User.class);
+        TypedQuery<User> typedQuery = entityManager.createQuery(
+                "update User u set u.lastlogin =:logintime where u.email=:email", User.class);
         typedQuery.setParameter("logintime", loginTime);
         typedQuery.setParameter("email", email);
         entityManager.getTransaction().begin();
         entityManager.merge(loginTime);
         entityManager.getTransaction().commit();
+        entityManager.close();
     }
 
     public List<User> getAllUsers () {
         TypedQuery<User> typedQuery = entityManager.createQuery("select u from User u", User.class);
         List<User> userList = typedQuery.getResultList();
-//        entityManager.close();
+        entityManager.close();
         emFactory.close();
         return userList;
     }
