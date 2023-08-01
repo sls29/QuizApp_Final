@@ -12,6 +12,8 @@ import lombok.RequiredArgsConstructor;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.io.Serial;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.Date;
 
 //import static jakarta.faces.component.UIWebsocket.PropertyKeys.user;
@@ -44,9 +46,13 @@ public class LoginApiServlet extends HttpServlet {
             HttpSession session = req.getSession(true);
             session.setAttribute("email", email);
 
+            DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy/MM/dd HH:mm:ss");
+            LocalDateTime now = LocalDateTime.now();
+            String loginTime = dtf.format(now);
+
+            userService.updateLastLoginDate(email, loginTime);
+
             Cookie loginCookie = new Cookie("email", email);
-
-
             loginCookie.setMaxAge(15*60);
             resp.addCookie(loginCookie);
             resp.sendRedirect("welcome.jsp");
@@ -99,7 +105,7 @@ public class LoginApiServlet extends HttpServlet {
 //            out.println("</script>");
 //            out.println("</body>");
 //            out.println("</html>");
-////            out.println("Incorrect Email or Password");
+//            out.println("Incorrect Email or Password");
 //            RequestDispatcher rs = req.getRequestDispatcher("index.jsp");
 //            rs.include(req, resp);
 

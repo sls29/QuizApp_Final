@@ -3,19 +3,18 @@ package com.QuizApp.service;
 import com.QuizApp.model.User;
 import com.QuizApp.model.dto.CreateUserDto;
 import com.QuizApp.repository.JpaUserRepository;
-import jakarta.persistence.TypedQuery;
 import lombok.RequiredArgsConstructor;
 
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.util.Iterator;
 import java.util.List;
-import java.util.Optional;
 import java.util.regex.Pattern;
 
 @RequiredArgsConstructor
 public class UserService {
     private final JpaUserRepository jpaUserRepository;
+
+    public void updateLastLoginDate(String email, String loginTime) {
+        jpaUserRepository.updateLastLoginDate(email, loginTime);
+    }
 
     public boolean validateUserLogin(String email, String password) {
         if (!findUser(jpaUserRepository.getAllUsers(), email, password)) {

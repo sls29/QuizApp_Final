@@ -47,24 +47,6 @@ public class LogoutApiServlet extends HttpServlet {
         }
         resp.sendRedirect("logout.jsp");
 
-//        out.println("<!DOCTYPE html>");
-//        out.println("<html>");
-//        out.println("<head>");
-//        out.println("<title>Logout Servlet Msg</title>");
-//        out.println("</head>");
-//        out.println("<body onLoad='showResult()'>");
-//        out.println("<script type=\'text/javascript\'>");
-//        out.println("function showResult(){");
-//        out.println("alert("+val1+val2+");");
-//        out.println("}");
-//        out.println("</script>");
-//        out.println("</body>");
-//        out.println("</html>");
-
-//        out.println("Session after invalidate: " + req.getSession(false) + "<br/>");
-//        out.println("You are successfully logged out.");
-//        out.println("<br/>");
-//        out.println("<h1 style='text-align:center'</h1><a href='index.jsp'>Go to Start Page</a>");
 //        RequestDispatcher rs = req.getRequestDispatcher("logout.jsp");
 //        rs.forward(req, resp);
 //        out.close();

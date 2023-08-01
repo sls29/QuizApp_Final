@@ -11,7 +11,6 @@ public class JpaUserRepository {
     EntityManager entityManager = emFactory.createEntityManager();
 
     public void userRegistration(User user){
-
         entityManager.getTransaction().begin();
         entityManager.persist(user);
         entityManager.getTransaction().commit();
@@ -26,6 +25,15 @@ public class JpaUserRepository {
         entityManager.flush();
         entityManager.getTransaction().commit();
 //        entityManager.close();
+    }
+
+    public void updateLastLoginDate(String email, String loginTime){
+        TypedQuery<User> typedQuery = entityManager.createQuery("update User u set u.lastlogin =:logintime where u.email=:email", User.class);
+        typedQuery.setParameter("logintime", loginTime);
+        typedQuery.setParameter("email", email);
+        entityManager.getTransaction().begin();
+        entityManager.merge(loginTime);
+        entityManager.getTransaction().commit();
     }
 
     public List<User> getAllUsers () {
