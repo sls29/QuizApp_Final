@@ -6,19 +6,17 @@ import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityManagerFactory;
 import jakarta.persistence.Persistence;
 
-import java.util.LinkedList;
-import java.util.List;
+public class JpaAnswerRepository {
 
-public class JpaQuestionRepository {
     EntityManagerFactory emFactory = Persistence.createEntityManagerFactory("com.QuizApp");
     EntityManager entityManager = emFactory.createEntityManager();
 
-    public void questionImport(Question question) {
+    public void answerImport(Answer answer) {
         entityManager.getTransaction().begin();
-        entityManager.persist(question);
+        entityManager.persist(answer);
         entityManager.getTransaction().commit();
     }
-    //        entityManager.close();
 
-    }
+//        entityManager.close();
 
+}

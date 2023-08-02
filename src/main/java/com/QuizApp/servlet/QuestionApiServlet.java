@@ -4,7 +4,9 @@ import com.QuizApp.model.dto.CreateAnswerDto;
 import com.QuizApp.model.dto.CreateQuestionDto;
 import com.QuizApp.model.Answer;
 import com.QuizApp.repository.JpaQuestionRepository;
+import com.QuizApp.repository.JpaAnswerRepository;
 import com.QuizApp.service.QuestionService;
+import com.QuizApp.service.AnswerService;
 import jakarta.servlet.RequestDispatcher;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
@@ -22,11 +24,12 @@ import java.util.List;
 @WebServlet("/question-api")
 public class QuestionApiServlet extends HttpServlet {
     private final QuestionService questionService = new QuestionService(new JpaQuestionRepository());
+    private final AnswerService answerService = new AnswerService(new JpaAnswerRepository());
 
     protected void doPost(HttpServletRequest req, HttpServletResponse resp)
             throws ServletException, IOException {
 
-        String csvFilePath = "/home/think/IdeaProjects/QuizApp_Final3/QuizQuestionsCSV.csv";
+        String csvFilePath = "C:\\Users\\Luci\\QuizApp_Final\\QuizQuestionsCSV.csv";
         BufferedReader lineReader = new BufferedReader(new FileReader(csvFilePath));
 
             PrintWriter out = resp.getWriter();
@@ -45,6 +48,7 @@ public class QuestionApiServlet extends HttpServlet {
                 int answerOpt1C = Integer.parseInt(questions[6]);
                 String answerOpt2 = questions[7];
                 int answerOpt2C = Integer.parseInt(questions[8]);
+                int question_id = Integer.parseInt(questions[9]);
 
                 CreateQuestionDto questionDto = new CreateQuestionDto();
                 questionDto.setName(questionName);
@@ -54,6 +58,8 @@ public class QuestionApiServlet extends HttpServlet {
                 questionDto.setScore(1);
                 questionDto.setContent(null);
 
+                questionService.addQuestion(questionDto);
+
                 List<CreateAnswerDto> answers = new ArrayList<>();
                 CreateAnswerDto answerDto0 = new CreateAnswerDto();
                 CreateAnswerDto answerDto1 = new CreateAnswerDto();
@@ -62,20 +68,24 @@ public class QuestionApiServlet extends HttpServlet {
                 answerDto0.setContent(answerOpt0);
                 answerDto0.setCorrect(answerOpt0C);
                 answerDto0.setActive(1);
+                answerDto0.setQuestion_id(question_id);
+                answerService.addAnswer(answerDto0);
 
                 answerDto1.setContent(answerOpt1);
                 answerDto1.setCorrect(answerOpt1C);
                 answerDto1.setActive(1);
+                answerDto1.setQuestion_id(question_id);
+                answerService.addAnswer(answerDto1);
 
                 answerDto2.setContent(answerOpt2);
                 answerDto2.setCorrect(answerOpt2C);
                 answerDto2.setActive(1);
+                answerDto2.setQuestion_id(question_id);
+                answerService.addAnswer(answerDto2);
 
-                answers.add(answerDto0);
-                answers.add(answerDto1);
-                answers.add(answerDto2);
 
-                questionService.addQuestion(questionDto, answers);
+
+
             }
         lineReader.close();
         RequestDispatcher rs = req.getRequestDispatcher("admin.jsp");

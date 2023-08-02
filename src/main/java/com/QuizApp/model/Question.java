@@ -15,15 +15,12 @@ import java.util.Set;
 @Table (name = "questions")
 @NoArgsConstructor
 
-
 public class Question {
 
     @Id
     @GeneratedValue (strategy = GenerationType.IDENTITY)
-//    @OneToMany (mappedBy = "questions")
-//    private Set<Answer> answers;
-
-    private int id;
+    @Column(name = "id")
+    public int id;
     private String name;
     private String type;
     private int active;

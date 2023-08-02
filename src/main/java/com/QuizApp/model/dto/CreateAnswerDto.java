@@ -8,6 +8,6 @@ public class CreateAnswerDto {
     private String content;
     private int correct;
     private int active;
-    private Question Question;
+    private int question_id;
 
 }
