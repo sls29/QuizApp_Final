@@ -16,7 +16,7 @@ public class QuestionService {
     private final JpaQuestionRepository jpaQuestionRepository;
 
     public void addQuestion(CreateQuestionDto createQuestionDto,
-                            LinkedList<CreateAnswerDto> answers) {
+                            List<CreateAnswerDto> answers) {
         if (!validateQuestion(createQuestionDto) && !validateAnswers( answers)) {
             throw new RuntimeException("Check the question list for consistence");
         }
@@ -28,7 +28,7 @@ public class QuestionService {
         question.setScore(createQuestionDto.getScore());
         question.setContent((createQuestionDto.getContent()));
 
-        LinkedList<Answer> answersList = new LinkedList<>();
+        List<Answer> answersList = new ArrayList<>();
 
         Answer answer = new Answer();
         for (CreateAnswerDto createAnswerDto : answers) {
@@ -41,7 +41,7 @@ public class QuestionService {
             jpaQuestionRepository.questionImport(question, answersList);
     }
 
-    private boolean validateAnswers(LinkedList<CreateAnswerDto> answers) {
+    private boolean validateAnswers(List<CreateAnswerDto> answers) {
         boolean answerIsOk = answers.stream().anyMatch(Objects::nonNull);
 
         return answerIsOk;

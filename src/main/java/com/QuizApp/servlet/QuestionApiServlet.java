@@ -15,6 +15,7 @@ import lombok.RequiredArgsConstructor;
 
 
 import java.io.*;
+import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -25,7 +26,7 @@ public class QuestionApiServlet extends HttpServlet {
     protected void doPost(HttpServletRequest req, HttpServletResponse resp)
             throws ServletException, IOException {
 
-        String csvFilePath = "/home/think/IdeaProjects/QuizApp_Final/QuizQuestionsCSV.csv";
+        String csvFilePath = "/home/think/IdeaProjects/QuizApp_Final3/QuizQuestionsCSV.csv";
         BufferedReader lineReader = new BufferedReader(new FileReader(csvFilePath));
 
             PrintWriter out = resp.getWriter();
@@ -53,7 +54,7 @@ public class QuestionApiServlet extends HttpServlet {
                 questionDto.setScore(1);
                 questionDto.setContent(null);
 
-                LinkedList<CreateAnswerDto> answers = new LinkedList<>();
+                List<CreateAnswerDto> answers = new ArrayList<>();
                 CreateAnswerDto answerDto0 = new CreateAnswerDto();
                 CreateAnswerDto answerDto1 = new CreateAnswerDto();
                 CreateAnswerDto answerDto2 = new CreateAnswerDto();

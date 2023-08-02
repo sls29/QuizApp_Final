@@ -7,12 +7,13 @@ import jakarta.persistence.EntityManagerFactory;
 import jakarta.persistence.Persistence;
 
 import java.util.LinkedList;
+import java.util.List;
 
 public class JpaQuestionRepository {
     EntityManagerFactory emFactory = Persistence.createEntityManagerFactory("com.QuizApp");
     EntityManager entityManager = emFactory.createEntityManager();
 
-    public void questionImport(Question question, LinkedList<Answer> answersList) {
+    public void questionImport(Question question, List<Answer> answersList) {
         entityManager.getTransaction().begin();
         entityManager.persist(question);
         entityManager.getTransaction().commit();
