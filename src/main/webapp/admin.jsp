@@ -15,17 +15,14 @@
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.2/font/bootstrap-icons.css">
         <link rel="stylesheet" href="https://unpkg.com/bootstrap-table@1.21.4/dist/bootstrap-table.min.css">
-
         <style>
             { box-sizing: border-box; }
-
             .column {
               float: left;
               width: 50%;
-              padding: 10px;
-              height: 300px;
+              padding: 8px;
+              height: 400px;
             }
-
             .row:after {
               content: "";
               display: table;
@@ -36,8 +33,9 @@
     <body>
         <title>Administration page</title>
         <div class = "row">
+        <h1>Administrator Page</h1>
             <div class="column" style="background-color:#bbb;">
-                <h2>Registered Users</h2>
+                <h2>Login</h2>
                 <br/>
                 <form action="admin-api" method="POST">
                      <div class="form-outline mb-4">
@@ -76,49 +74,52 @@
                     </table>
             </div>
         </div>
-
         <div class = "row">
+        <h1>Database Section</h1>
             <div class="column" style="background-color:#aaa;">
+            <h2>Questions</h2>
                 <form action="question-api" method="post">
                     <div class="form-outline mb-4">
                          <input type="submit" value="Add Questions" class="btn btn-primary btn-block" />
                     </div>
-                </form>
-                <h2>Generated Quizes</h2>
-                <form action="quiz-api"
-                    <div class="form-outline mb-4">
-                         <input type="text" name="quizName" value="Quiz Name..." onclick="this.value=''"/><br/>
-                    </div>
-                    <div class="form-outline mb-4">
-                        <input type="submit" value="Generate Quizes" class="btn btn-primary btn-block" />
-                    </div>
+                    <table border="1" class="table table-striped table-hover w-50 p-3">
+                        <tr>
+                            <th>Number of questions in DB</th>
+                        </tr>
+                        <%
+                            JpaQuestionRepository repo = new JpaQuestionRepository();
+                        %>
+                        <tr>
+                            <td><%=repo.getNumberOfQuestions()%></td>
+                        </tr>
+                    </table>
                 </form>
             </div>
             <div class="column" style="background-color:#bbb;">
-                <table border="1" class="table table-striped table-hover w-50 p-3">
-                    <tr>
-                        <th>Number of questions in DB</th>
-                    </tr>
-                        <%
-                        JpaQuestionRepository repo = new JpaQuestionRepository();
-                        %>
-                    <tr>
-                        <td><%=repo.getNumberOfQuestions()%></td>
-                    </tr>
-                </table>
-                <table border="1" class="table table-striped table-hover w-50 p-3">
-                    <tr>
-                        <th>Number of Quizes in DB</th>
-                    </tr>
-                    <%
-                    %>
-                    <tr>
-                    </tr>
-                </table>
+            <h1>generated Quizes</h1>
+                 <table border="1" class="table table-striped table-hover w-50 p-3">
+                      <tr>
+                         <th>Number of questions in DB</th>
+                      </tr>
+                      <%
+                      JpaQuestionRepository repo2 = new JpaQuestionRepository();
+                       %>
+                       <tr>
+                            <td><%=repo2.getNumberOfQuestions()%></td>
+                       </tr>
+                 </table>
+                <div class="form-outline mb-4">
+                    <input type="submit" value="Generate Quizes" class="btn btn-primary btn-block" />
+                </div>
+                <form action="quiz-api"
+                    <div class="form-outline mb-4">
+                        <input type="text" name="quizName" value="Quiz Name..." onclick="this.value=''"/>
+                    </div>
+                </form>
             </div>
         </div>
-
         <div class = "row">
+        <h1>Logout Section</h1>
             <form action="logout-api" method="get">
                 <h3>Logout</h3>
                 <br/>
