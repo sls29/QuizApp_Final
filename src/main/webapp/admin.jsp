@@ -83,8 +83,14 @@
                     <div class="form-outline mb-4">
                          <input type="submit" value="Add Questions" class="btn btn-primary btn-block" />
                     </div>
+                </form>
+                <br><br/>
+                <form action="quiz-api"
                     <div class="form-outline mb-4">
-                         <input type="submit" value="Generate Quizes" class="btn btn-primary btn-block" />
+                         <input type="text" name="quizName" value="Quiz Name..." onclick="this.value=''"/><br/>
+                    </div>
+                    <div class="form-outline mb-4">
+                        <input type="submit" value="Generate Quizes" class="btn btn-primary btn-block" />
                     </div>
                 </form>
             </div>

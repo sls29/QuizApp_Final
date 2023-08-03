@@ -60,7 +60,6 @@ public class QuestionApiServlet extends HttpServlet {
 
                 questionService.addQuestion(questionDto);
 
-                List<CreateAnswerDto> answers = new ArrayList<>();
                 CreateAnswerDto answerDto0 = new CreateAnswerDto();
                 CreateAnswerDto answerDto1 = new CreateAnswerDto();
                 CreateAnswerDto answerDto2 = new CreateAnswerDto();

@@ -24,6 +24,10 @@ public class QuestionService {
         jpaQuestionRepository.questionImport(question);
     }
 
+    public int getNumberOfQuestions(){
+        return jpaQuestionRepository.getNumberOfQuestions();
+    }
+
     private boolean validateQuestion(CreateQuestionDto createQuestionDto) {
         boolean questionIsOk = createQuestionDto.getContent() != null;
 

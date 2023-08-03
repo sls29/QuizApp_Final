@@ -6,6 +6,7 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
 
+import java.util.List;
 import java.util.Set;
 
 @Getter
@@ -27,6 +28,8 @@ public class Question {
     private int level;
     private int score;
     private String content;
+    @ManyToMany
+    private List<Quiz> quizList;
 
 
     public Question( String name, String type, int active, int level, int score, String content){

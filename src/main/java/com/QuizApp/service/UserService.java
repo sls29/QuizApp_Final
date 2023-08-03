@@ -25,7 +25,8 @@ public class UserService {
     }
 
     public boolean findUser(List<User> userList, String email, String password) {
-        return (userList.stream().anyMatch(p -> p.getEmail().equals(email)&&p.getPasswordHash().equals(password)));
+        return (userList.stream()
+                .anyMatch(p -> p.getEmail().equals(email)&&p.getPasswordHash().equals(password)));
     }
 
     public void addUser(
