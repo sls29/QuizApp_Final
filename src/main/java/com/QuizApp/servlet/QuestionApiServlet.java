@@ -29,7 +29,7 @@ public class QuestionApiServlet extends HttpServlet {
     protected void doPost(HttpServletRequest req, HttpServletResponse resp)
             throws ServletException, IOException {
 
-        String csvFilePath = "C:\\Users\\Luci\\QuizApp_Final\\QuizQuestionsCSV.csv";
+        String csvFilePath = "/home/think/IdeaProjects/QuizApp_Final/QuizQuestionsCSV.csv";
         BufferedReader lineReader = new BufferedReader(new FileReader(csvFilePath));
 
             PrintWriter out = resp.getWriter();

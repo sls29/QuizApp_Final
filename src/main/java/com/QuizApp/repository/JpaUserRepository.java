@@ -41,9 +41,10 @@ public class JpaUserRepository {
 
     public List<User> getAllUsers () {
         TypedQuery<User> typedQuery = entityManager.createQuery("select u from User u", User.class);
-        List<User> userList = typedQuery.getResultList();
+        return typedQuery.getResultList();
+
 //        entityManager.close();
 //        emFactory.close();
-        return userList;
+
     }
 }

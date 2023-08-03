@@ -1,6 +1,7 @@
 <%@ page contentType="text/html; charset=UTF-8" %>
 <%@ page import="java.util.*" %>
 <%@ page import="com.QuizApp.repository.JpaUserRepository" %>
+<%@ page import="com.QuizApp.repository.JpaQuestionRepository" %>
 <%@ page import="com.QuizApp.model.User" %>
 <%@ page import="java.time.LocalDateTime" %>
 
@@ -88,7 +89,30 @@
                 </form>
             </div>
             <div class="column" style="background-color:#bbb;">
+                <table border="1" class="table table-striped table-hover w-50 p-3">
+                    <tr>
+                        <th>Number of questions in DB</th>
+                    </tr>
+                        <%
+                        JpaQuestionRepository repo = new JpaQuestionRepository();
+                        %>
+                    <tr>
+                        <td><%=repo.getNumberOfQuestions()%></td>
+                    </tr>
+                </table>
                 <br/>
+
+                <table border="1" class="table table-striped table-hover w-50 p-3">
+                <tr>
+                   <th>Number of Quizes in DB</th>
+                </tr>
+                    <%
+
+                    %>
+                <tr>
+
+                </tr>
+             </table>
             </div>
         </div>
 
