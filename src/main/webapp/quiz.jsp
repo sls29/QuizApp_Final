@@ -1,7 +1,9 @@
 <%@ page contentType="text/html; charset=UTF-8" %>
 <%@ page import="java.util.*" %>
 <%@ page import="com.QuizApp.repository.JpaUserRepository" %>
+<%@ page import="com.QuizApp.repository.JpaQuizRepository" %>
 <%@ page import="com.QuizApp.model.User" %>
+<%@ page import="com.QuizApp.model.Quiz" %>
 <%@ page import="java.time.LocalDateTime" %>
 
 <% response.setHeader("Cache-Control", "no-cache, no-store"); %>
@@ -22,7 +24,7 @@
                 float: left;
                 width: 50%;
                 padding: 10px;
-                height: 100px;
+                height: 300px;
             }
 
             .row:after {
@@ -56,22 +58,32 @@
 
         <div class = "row">
             <div class = "column" style="background-color:#bbb;">
-                    <h2>Chose a Quiz</h2>
-                    <form action="quiz.jsp" method="get">
-                        Quiz's: <select name="quiz">
-                            <option> value = "" selected ="selected"</option>
-                        </select>
-                        <br><br>
-                        <div class="form-outline mb-4"
-                           <input type="submit" name="submit" value="Select Color"/>
-                        </div>
-                </form>
+                    <h2>Choose a Quiz</h2>
+                    <table border="1" class="table table-striped table-hover w-50 p-3">
+                         <tr>
+                              <th>QuizName</th>
+                                  </tr>
+                                        <%
+                                            JpaQuizRepository repo = new JpaQuizRepository();
+                                            List<Quiz> quizes = repo.getQuizes();
+                                            for (Quiz quiz : quizes) {
+                                        %>
+                                            <tr>
+                                                <td><%= quiz.getTitle() %></td>
+                                            </tr>
+                                        <% } %>
+                    </table>
             </div>
             <div class = "column" style="background-color:#aaa;">
-                 <h2>Play Quiz</h2>
-                 <div class="form-outline mb-4">
-                     <input type="submit" value="Play" class="btn btn-primary btn-block" />
-                 </div>
+                <h2>Play Quiz</h2>
+                <form action="quiz-api" method="POST">
+                    <div class="form-outline mb-4">
+                        <input type="text" name="quizName" value="QuizName..." onclick="this.value=''"/><br/>
+                    </div>
+                    <div class="form-outline mb-4">
+                        <input type="submit" value="Play" class="btn btn-primary btn-block" />
+                    </div>
+                </form>
             </div>
         </div>
     </body>

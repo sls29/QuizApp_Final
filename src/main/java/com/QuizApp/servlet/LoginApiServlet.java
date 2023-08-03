@@ -53,7 +53,7 @@ public class LoginApiServlet extends HttpServlet {
 
         } else {
             RequestDispatcher rd = getServletContext().getRequestDispatcher("/index.jsp");
-            out.println("<font color=red>Either user name or password is wrong.</font>");
+            out.println("<font color=red>Either email or password is wrong.</font>");
             rd.include(req, resp);
         }
     }

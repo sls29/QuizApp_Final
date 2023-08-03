@@ -2,6 +2,7 @@
 <%@ page import="java.util.*" %>
 <%@ page import="com.QuizApp.repository.JpaUserRepository" %>
 <%@ page import="com.QuizApp.repository.JpaQuestionRepository" %>
+<%@ page import="com.QuizApp.repository.JpaQuizRepository" %>
 <%@ page import="com.QuizApp.model.User" %>
 <%@ page import="java.time.LocalDateTime" %>
 
@@ -99,13 +100,13 @@
             <h1>generated Quizes</h1>
                  <table border="1" class="table table-striped table-hover w-50 p-3">
                       <tr>
-                         <th>Number of questions in DB</th>
+                         <th>Number of quizes in DB</th>
                       </tr>
                       <%
-                      JpaQuestionRepository repo2 = new JpaQuestionRepository();
+                      JpaQuizRepository repo2 = new JpaQuizRepository();
                        %>
                        <tr>
-                            <td><%=repo2.getNumberOfQuestions()%></td>
+                            <td><%=repo2.getNumberOfQuizes()%></td>
                        </tr>
                  </table>
                 <div class="form-outline mb-4">
