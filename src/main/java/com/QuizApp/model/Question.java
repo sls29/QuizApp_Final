@@ -28,8 +28,10 @@ public class Question {
     private int level;
     private int score;
     private String content;
-    @ManyToMany
-    private List<Quiz> quizList;
+//    @ManyToMany
+//    private List<Quiz> quizList;
+//    @OneToMany
+//    public List<Answer> answerList;
 
 
     public Question( String name, String type, int active, int level, int score, String content){

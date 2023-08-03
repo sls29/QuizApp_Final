@@ -20,8 +20,8 @@ public class Answer {
     private int active;
     private int correct;
     private String content;
-    @ManyToOne(targetEntity = Question.class)
-    @JoinColumn(name="id", nullable = false)
+//    @ManyToOne(targetEntity = Question.class)
+//    @JoinColumn(name="id", nullable = false)
     public int question_id;
 
 

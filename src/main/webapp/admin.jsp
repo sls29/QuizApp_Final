@@ -49,8 +49,8 @@
                 </form>
             </div>
             <div class="column" style="background-color:#aaa;">
-            <h2>Registered Users</h2>
-                <table border="1" class="table table-striped table-hover w-50 p-3">
+                <h2>Registered Users</h2>
+                    <table border="1" class="table table-striped table-hover w-50 p-3">
                     <tr>
                         <th>ID</th>
                         <th>FirstName</th>
@@ -73,18 +73,18 @@
                             <td><%= user.getRegisteredAt() %></td>
                         </tr>
                     <% } %>
-                </table>
+                    </table>
             </div>
+        </div>
+
         <div class = "row">
             <div class="column" style="background-color:#aaa;">
-                <h2>Generated Quizes</h2>
-                <br/>
                 <form action="question-api" method="post">
                     <div class="form-outline mb-4">
                          <input type="submit" value="Add Questions" class="btn btn-primary btn-block" />
                     </div>
                 </form>
-                <br><br/>
+                <h2>Generated Quizes</h2>
                 <form action="quiz-api"
                     <div class="form-outline mb-4">
                          <input type="text" name="quizName" value="Quiz Name..." onclick="this.value=''"/><br/>
@@ -106,19 +106,15 @@
                         <td><%=repo.getNumberOfQuestions()%></td>
                     </tr>
                 </table>
-                <br/>
-
                 <table border="1" class="table table-striped table-hover w-50 p-3">
-                <tr>
-                   <th>Number of Quizes in DB</th>
-                </tr>
+                    <tr>
+                        <th>Number of Quizes in DB</th>
+                    </tr>
                     <%
-
                     %>
-                <tr>
-
-                </tr>
-             </table>
+                    <tr>
+                    </tr>
+                </table>
             </div>
         </div>
 
