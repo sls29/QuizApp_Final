@@ -2,8 +2,8 @@
 <%@ page import="java.util.*" %>
 <%@ page import="com.QuizApp.repository.JpaQuestionRepository" %>
 <%@ page import="com.QuizApp.repository.JpaAnswerRepository" %>
-<%@ page import="com.QuizApp.model.User" %>
-<%@ page import="com.QuizApp.model.Quiz" %>
+<%@ page import="com.QuizApp.model.Question" %>
+<%@ page import="com.QuizApp.model.Answer" %>
 <%@ page import="java.time.LocalDateTime" %>
 
 <% response.setHeader("Cache-Control", "no-cache, no-store"); %>
@@ -65,11 +65,11 @@
                 </tr>
                 <%
                   JpaQuestionRepository repo1 = new JpaQuestionRepository();
-                  List<Question> questions = repo1.getQuestion();
+                  List<Question> questions = repo1.getQuestions(1);
                   for (Question question : questions) {
                 %>
                 <tr>
-                   <td><%= question.getTitle() %></td></tr>
+                   <td><%= question.getName() %></td></tr>
                 <% } %>
                 </table>
                 </div>
@@ -85,7 +85,7 @@
                             </tr>
                             <%
                             JpaAnswerRepository repo2 = new JpaAnswerRepository();
-                            List<Answer> answers = repo2.getAnswer();
+                            List<Answer> answers = repo2.getAnswers(1);
                             for (Answer answer : answers) {
                             %>
                             <tr>

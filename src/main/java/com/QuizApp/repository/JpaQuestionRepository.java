@@ -23,11 +23,21 @@ public class JpaQuestionRepository {
     //        entityManager.close();
 
     public int getNumberOfQuestions() {
-        TypedQuery<Question> typedQuery = entityManager.createQuery("select q from Question q", Question.class);
+        TypedQuery<Question> typedQuery = entityManager.createQuery(
+                "select q from Question q", Question.class);
         List<Question> questionList = typedQuery.getResultList();
         return questionList.size();
 //        entityManager.close();
 //        emFactory.close();
+    }
 
+    public List<Question> getQuestions(Integer quiz_id) {
+        TypedQuery<Question> typedQuery = entityManager.createQuery(
+                "select q from Question q where id=:id", Question.class);
+        typedQuery.setParameter("id", 1);
+        return typedQuery.getResultList();
+
+//        entityManager.close();
+//        emFactory.close();
     }
 }
