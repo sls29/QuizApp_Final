@@ -18,12 +18,13 @@ import java.io.IOException;
 public class TakeApiServlet extends HttpServlet {
 
         private final QuestionService questionService = new QuestionService(new JpaQuestionRepository());
-        private final QuizService quizService = new QuizService(new JpaQuizRepository());
 
-        int numberOfQuestions = questionService.getNumberOfQuestions();
+
 
         protected void doPost (HttpServletRequest req, HttpServletResponse resp)
                 throws ServletException, IOException {
+
+
 
             RequestDispatcher rd = getServletContext().getRequestDispatcher("/take.jsp");
             rd.include(req, resp);

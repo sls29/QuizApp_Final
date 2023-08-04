@@ -59,24 +59,24 @@
         <title>Quiz''s Question</title>
                 <div class = "row">
                 <h2>Question Number</h2>
-                <table border="1" class="table table-striped table-hover w-50 p-3">
-                <tr>
-                    <th>Question</th>
-                </tr>
-                <%
-                  JpaQuestionRepository repo1 = new JpaQuestionRepository();
-                  List<Question> questions = repo1.getQuestions(1);
-                  for (Question question : questions) {
-                %>
-                <tr>
-                   <td><%= question.getName() %></td></tr>
-                <% } %>
-                </table>
+                    <table border="1" class="table table-striped table-hover w-50 p-3">
+                    <tr>
+                        <th>Question</th>
+                    </tr>
+                    <%
+                        JpaQuestionRepository repo1 = new JpaQuestionRepository();
+                        List<Question> questions = repo1.getQuestions(1);
+                        for (Question question : questions) {
+                    %>
+                    <tr>
+                        <td><%= question.getName() %></td></tr>
+                    <% } %>
+                    </table>
                 </div>
 
         <title>Quiz''s Answer Options</title>
                 <div class = "row">
-                <h1></h1>
+                    <h1></h1>
                     <div class="column" style="background-color:#bbb;">
                         <h2>Answers Options</h2>
                         <table border="1" class="table table-striped table-hover w-50 p-3">
@@ -95,20 +95,20 @@
                     </div>
                     <div class="column" style="background-color:#aaa;">
                         <h2>Answer</h2>
-                            <form action="take-api" method="POST">
-                                 <div class="form-outline mb-4">
-                                    <p><input type="radio" name="answer" value="A" />first</p>
-                                 </div>
-                                 <div class="form-outline mb-4">
-                                    <p><input type="radio" name="answer" value="B" />second</p>
-                                 </div>
-                                 <div class="form-outline mb-4">
-                                    <p><input type="radio" name="answer" value="C" />third</p>
-                                 </div>
-                                 <div class="form-outline mb-4">
-                                    <p><input type="submit" value="Submit" class="btn btn-primary btn-block" />
-                                 </div>
-                            </form>
+                        <form action="take-api" method="POST">
+                            <div class="form-outline mb-4">
+                                <p><input type="radio" name="answer" value="A" />first</p>
+                            </div>
+                            <div class="form-outline mb-4">
+                                <p><input type="radio" name="answer" value="B" />second</p>
+                            </div>
+                            <div class="form-outline mb-4">
+                                <p><input type="radio" name="answer" value="C" />third</p>
+                            </div>
+                            <div class="form-outline mb-4">
+                                <p><input type="submit" value="Submit" class="btn btn-primary btn-block" />
+                            </div>
+                        </form>
                     </div>
                 </div>
 
