@@ -23,29 +23,12 @@ public class AdminApiServlet extends HttpServlet {
 
         String email = req.getParameter("email");
 
-        try {
-            userService.deleteUser(email);
-        } catch (Exception e) {
-            out.println(e.getMessage());
-        }
-        String val1="User deleted.";
-        out.println("<!DOCTYPE html>");
-        out.println("<html>");
-        out.println("<head>");
-        out.println("<title>Login Servlet Mesg</title>");
-        out.println("</head>");
-        out.println("<body onLoad=\"showResult();\">");
-        out.println("<script>");
-        out.println("function showResult(){");
-        out.println("alert(\""+val1+"\")");
-        out.println("}");
-        out.println("</script>");
-        out.println("</body>");
-        out.println("</html>");
-//        out.println("User deleted");
-//        resp.getOutputStream().println("<h1 style='text-align:center'</h1><a href='index.jsp'>User deleted!</a>");
-        RequestDispatcher rs = req.getRequestDispatcher("admin.jsp");
-        rs.forward(req, resp);
+        userService.deleteUser(email);
+        out.println("<font color=green>User deleted.</font>");
+        out.println("<a href='admin.jsp'>Go back to admin page.</a>");
+
+//        RequestDispatcher rs = req.getRequestDispatcher("admin.jsp");
+//        rs.forward(req, resp);
     }
 
 }

@@ -39,6 +39,15 @@ public class JpaUserRepository {
 //        entityManager.close();
     }
 
+    public boolean findUser(String email){
+        TypedQuery<User> typedQuery = entityManager.createQuery(
+                "select u from User u where email=:email", User.class);
+        typedQuery.setParameter("email", email);
+        User user = typedQuery.getSingleResult();
+        return true;
+//        entityManager.close();
+    }
+
     public List<User> getAllUsers () {
         TypedQuery<User> typedQuery = entityManager.createQuery("select u from User u", User.class);
         return typedQuery.getResultList();

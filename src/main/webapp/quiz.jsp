@@ -66,7 +66,7 @@
                                         <%
                                             JpaQuizRepository repo = new JpaQuizRepository();
                                             List<Quiz> quizes = repo.getQuizes();
-                                            for (Quiz quiz : quizes) {
+                                           for (Quiz quiz : quizes) {
                                         %>
                                             <tr>
                                                 <td><%= quiz.getTitle() %></td>
@@ -76,7 +76,7 @@
             </div>
             <div class = "column" style="background-color:#aaa;">
                 <h2>Play Quiz</h2>
-                <form action="quiz-api" method="POST">
+                <form action="take-api" method="post">
                     <div class="form-outline mb-4">
                         <input type="text" name="quizName" value="QuizName..." onclick="this.value=''"/><br/>
                     </div>

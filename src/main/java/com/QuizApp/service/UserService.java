@@ -30,12 +30,13 @@ public class UserService {
     }
 
     public void addUser(
-            CreateUserDto createUserDto){
+            CreateUserDto createUserDto) {
         if (!validateUserData(createUserDto)) {
             throw new RuntimeException(("invalid data for user: firstName was {}, " +
                     "lastName was {}, email was {}").formatted(createUserDto.getFirstName(),
                     createUserDto.getLastLogin(), createUserDto.getEmail()));
         }
+
 
         User user = new User();
 
@@ -46,12 +47,23 @@ public class UserService {
         user.setRegisteredAt(createUserDto.getRegisteredAt());
         user.setLastLogin(createUserDto.getLastLogin());
 
-        jpaUserRepository.userRegistration(user);
-    }
 
-    public void deleteUser (String email){
-        jpaUserRepository.findAndDeleteUserByEmail(email);
+
+//        if (jpaUserRepository.findUser(createUserDto.getEmail())) {
+//            throw new RuntimeException("User found in DB");
+//        } else {
+             jpaUserRepository.userRegistration(user);
+//        }
+
     }
+    public void deleteUser (String email){
+        if (jpaUserRepository.findUser(email)){
+        jpaUserRepository.findAndDeleteUserByEmail(email);
+        } else {
+            throw new RuntimeException ("User not found in DB");
+        }
+        }
+
 
     public boolean validateUserData(CreateUserDto userDto) {
         String emailValidationPattern = "^(.+)@(.+)$";

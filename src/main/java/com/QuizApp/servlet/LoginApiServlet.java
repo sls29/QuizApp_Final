@@ -52,8 +52,8 @@ public class LoginApiServlet extends HttpServlet {
             resp.sendRedirect("welcome.jsp");
 
         } else {
-            RequestDispatcher rd = getServletContext().getRequestDispatcher("/index.jsp");
             out.println("<font color=red>Either email or password is wrong.</font>");
+            RequestDispatcher rd = getServletContext().getRequestDispatcher("/index.jsp");
             rd.include(req, resp);
         }
     }
