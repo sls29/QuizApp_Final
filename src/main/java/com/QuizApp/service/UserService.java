@@ -65,7 +65,7 @@ public class UserService {
         }
 
 
-    public boolean validateUserData(CreateUserDto userDto) {
+    public static boolean validateUserData(CreateUserDto userDto) {
         String emailValidationPattern = "^(.+)@(.+)$";
         boolean emailIsOK = userDto.getEmail() != null && Pattern.compile(emailValidationPattern)
                 .matcher(userDto.getEmail())

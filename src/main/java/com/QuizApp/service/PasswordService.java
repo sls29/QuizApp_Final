@@ -2,11 +2,8 @@ package com.QuizApp.service;
 
 public class PasswordService {
 
-    public boolean validatePassword(String password, String passwordCk) {
-        if (!password.equals(passwordCk)) {
-            return false;
-        }
-        return true;
+    public static boolean validatePassword(String password, String passwordCk) {
+        return password.equals(passwordCk);
     }
 }
 
