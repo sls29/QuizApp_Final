@@ -13,6 +13,7 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 
 import java.io.PrintWriter;
+import java.security.NoSuchAlgorithmException;
 import java.time.format.DateTimeFormatter;
 import java.time.LocalDateTime;
 import java.io.IOException;
@@ -42,7 +43,12 @@ public class UserApiServlet extends HttpServlet {
 
         } else {
 
-        String passwordHash = password;
+        String passwordHash = null;
+        try {
+            passwordHash = passwordService.passwordToHash(password);
+        } catch (NoSuchAlgorithmException e) {
+            throw new RuntimeException(e);
+        }
 
         DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy/MM/dd HH:mm:ss");
         LocalDateTime now = LocalDateTime.now();

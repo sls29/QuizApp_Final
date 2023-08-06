@@ -3,8 +3,11 @@ package com.QuizApp.service;
 import com.QuizApp.model.User;
 import com.QuizApp.model.dto.CreateUserDto;
 import com.QuizApp.repository.JpaUserRepository;
+import com.QuizApp.service.PasswordService;
 import lombok.RequiredArgsConstructor;
 
+import java.io.UnsupportedEncodingException;
+import java.security.NoSuchAlgorithmException;
 import java.util.List;
 import java.util.regex.Pattern;
 
@@ -16,8 +19,8 @@ public class UserService {
         jpaUserRepository.updateLastLoginDate(email, loginTime);
     }
 
-    public boolean validateUserLogin(String email, String password) {
-        if (!findUser(jpaUserRepository.getAllUsers(), email, password)) {
+    public boolean validateUserLogin(String email, String password) throws UnsupportedEncodingException, NoSuchAlgorithmException {
+        if (!findUser(jpaUserRepository.getAllUsers(), email, PasswordService.passwordToHash(password))) {
             return false;
         } else {
             return true;

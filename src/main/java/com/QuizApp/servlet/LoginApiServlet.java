@@ -10,6 +10,7 @@ import jakarta.servlet.http.*;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.io.Serial;
+import java.security.NoSuchAlgorithmException;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 
@@ -37,24 +38,28 @@ public class LoginApiServlet extends HttpServlet {
         String email = req.getParameter("eemail");
         String password = req.getParameter("ppassword");
 
-        if(userService.validateUserLogin(email, password)) {
+        try {
+            if(userService.validateUserLogin(email, password)) {
 
-            DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy/MM/dd HH:mm:ss");
-            LocalDateTime now = LocalDateTime.now();
-            String loginTime = dtf.format(now);
-            userService.updateLastLoginDate(email, loginTime);
+                DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy/MM/dd HH:mm:ss");
+                LocalDateTime now = LocalDateTime.now();
+                String loginTime = dtf.format(now);
+                userService.updateLastLoginDate(email, loginTime);
 
-            HttpSession session = req.getSession(true);
-            session.setAttribute("email", email);
-            Cookie loginCookie = new Cookie("email", email);
-            loginCookie.setMaxAge(15*60);
-            resp.addCookie(loginCookie);
-            resp.sendRedirect("welcome.jsp");
+                HttpSession session = req.getSession(true);
+                session.setAttribute("email", email);
+                Cookie loginCookie = new Cookie("email", email);
+                loginCookie.setMaxAge(15*60);
+                resp.addCookie(loginCookie);
+                resp.sendRedirect("welcome.jsp");
 
-        } else {
-            out.println("<font color=red>Either email or password is wrong.</font>");
-            RequestDispatcher rd = getServletContext().getRequestDispatcher("/index.jsp");
-            rd.include(req, resp);
+            } else {
+                out.println("<font color=red>Either email or password is wrong.</font>");
+                RequestDispatcher rd = getServletContext().getRequestDispatcher("/index.jsp");
+                rd.include(req, resp);
+            }
+        } catch (NoSuchAlgorithmException e) {
+            throw new RuntimeException(e);
         }
     }
 }

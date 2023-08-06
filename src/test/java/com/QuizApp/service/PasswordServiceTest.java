@@ -11,6 +11,6 @@ public class PasswordServiceTest {
         final String password = "qwe123";
         final String passwordCk = "qwe123";
         val = PasswordService.validatePassword(password, passwordCk);
-    Assertions.assertEquals(ans, val);
+        Assertions.assertEquals(ans, val);
     }
 }
