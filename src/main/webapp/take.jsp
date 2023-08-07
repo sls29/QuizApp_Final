@@ -18,6 +18,10 @@
         <link rel="stylesheet" href="https://unpkg.com/bootstrap-table@1.21.4/dist/bootstrap-table.min.css">
 
         <style>
+
+                body {
+                    background-image: url("https://gamethinking.io/wp-content/uploads/sites/5/2018/12/quiz-background.png");
+                }
             { box-sizing: border-box;}
 
             .column {
@@ -64,7 +68,7 @@
         </div>
 
         <title>Quiz''s Question</title>
-                <div class = "row">
+                <div class = "row" style="background-color:#bbb;">
                 <h2>&nbsp Question Number</h2>
                     <table border="1" class="table table-striped table-hover w-50 p-3">
                     <tr>
@@ -104,13 +108,13 @@
                         <h2>Answer</h2>
                         <form action="take-api" method="POST">
                             <div class="form-outline mb-4">
-                                <p><input type="radio" name="answer" value="A" />first</p>
+                                <p><input type="radio" name="userAnswer" value="A" />first</p>
                             </div>
                             <div class="form-outline mb-4">
-                                <p><input type="radio" name="answer" value="B" />second</p>
+                                <p><input type="radio" name="userAnswer" value="B" />second</p>
                             </div>
                             <div class="form-outline mb-4">
-                                <p><input type="radio" name="answer" value="C" />third</p>
+                                <p><input type="radio" name="userAnswer" value="C" />third</p>
                             </div>
                             <div class="form-outline mb-4">
                                 <p><input type="submit" value="Submit" class="btn btn-primary btn-block" />

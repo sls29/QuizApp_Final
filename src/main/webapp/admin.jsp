@@ -17,6 +17,10 @@
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.2/font/bootstrap-icons.css">
         <link rel="stylesheet" href="https://unpkg.com/bootstrap-table@1.21.4/dist/bootstrap-table.min.css">
         <style>
+
+            body {
+                    background-image: url("https://gamethinking.io/wp-content/uploads/sites/5/2018/12/quiz-background.png");
+                }
             { box-sizing: border-box; }
             .column {
               float: left;
@@ -34,7 +38,18 @@
     <body>
         <title>Administration page</title>
         <div class = "row">
-        <h1>Administrator Page</h1>
+        <h1><%
+            String firstName = null;
+            Cookie[] cookies = request.getCookies();
+                if(cookies != null){
+                    for(Cookie cookie : cookies){
+                        if(cookie.getName().equals("email")) firstName = cookie.getValue();
+                    }
+                }
+                if(firstName == null) response.sendRedirect("index.jsp");
+                %></h1>
+        <h1>Administration Page; <%=firstName%> session.</h1>
+
             <div class="column" style="background-color:#bbb;">
                 <h2>Login</h2>
                 <br/>

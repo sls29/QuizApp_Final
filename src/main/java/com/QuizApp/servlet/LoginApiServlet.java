@@ -40,18 +40,31 @@ public class LoginApiServlet extends HttpServlet {
 
         try {
             if(userService.validateUserLogin(email, password)) {
+                if (email.equals("admin@mail.com")){
+                    DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy/MM/dd HH:mm:ss");
+                    LocalDateTime now = LocalDateTime.now();
+                    String loginTime = dtf.format(now);
+                    userService.updateLastLoginDate(email, loginTime);
 
-                DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy/MM/dd HH:mm:ss");
-                LocalDateTime now = LocalDateTime.now();
-                String loginTime = dtf.format(now);
-                userService.updateLastLoginDate(email, loginTime);
+                    HttpSession session = req.getSession(true);
+                    session.setAttribute("email", email);
+                    Cookie loginCookie = new Cookie("email", email);
+                    loginCookie.setMaxAge(15*60);
+                    resp.addCookie(loginCookie);
+                    resp.sendRedirect("admin.jsp");
+                } else {
+                    DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy/MM/dd HH:mm:ss");
+                    LocalDateTime now = LocalDateTime.now();
+                    String loginTime = dtf.format(now);
+                    userService.updateLastLoginDate(email, loginTime);
 
-                HttpSession session = req.getSession(true);
-                session.setAttribute("email", email);
-                Cookie loginCookie = new Cookie("email", email);
-                loginCookie.setMaxAge(15*60);
-                resp.addCookie(loginCookie);
-                resp.sendRedirect("welcome.jsp");
+                    HttpSession session = req.getSession(true);
+                    session.setAttribute("email", email);
+                    Cookie loginCookie = new Cookie("email", email);
+                    loginCookie.setMaxAge(15 * 60);
+                    resp.addCookie(loginCookie);
+                    resp.sendRedirect("welcome.jsp");
+                }
 
             } else {
                 out.println("<font color=red>Either email or password is wrong.</font>");

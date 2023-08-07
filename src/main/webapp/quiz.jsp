@@ -18,6 +18,10 @@
         <link rel="stylesheet" href="https://unpkg.com/bootstrap-table@1.21.4/dist/bootstrap-table.min.css">
 
         <style>
+
+                body {
+                    background-image: url("https://gamethinking.io/wp-content/uploads/sites/5/2018/12/quiz-background.png");
+                }
             { box-sizing: border-box;}
 
             .column {
@@ -84,9 +88,9 @@
             </div>
             <div class = "column" style="background-color:#aaa;">
                 <h2>Play Quiz</h2>
-                <form action="take-api" method="post">
+                <form action="take.jsp" method="post">
                     <div class="form-outline mb-4">
-                        <input type="text" name="quizName" value="QuizName..." onclick="this.value=''"/><br/>
+                        <input type="text" name="quizName" value="EasyQuiz" onclick="this.value=''"/><br/>
                     </div>
                     <div class="form-outline mb-4">
                         <input type="submit" value="Play" class="btn btn-primary btn-block" />

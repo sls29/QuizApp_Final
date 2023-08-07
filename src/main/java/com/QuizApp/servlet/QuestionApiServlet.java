@@ -82,9 +82,6 @@ public class QuestionApiServlet extends HttpServlet {
                 answerDto2.setQuestion_id(question_id);
                 answerService.addAnswer(answerDto2);
 
-
-
-
             }
         lineReader.close();
         RequestDispatcher rs = req.getRequestDispatcher("admin.jsp");

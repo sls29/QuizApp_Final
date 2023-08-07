@@ -31,6 +31,15 @@ public class JpaQuizRepository {
 //        emFactory.close();
     }
 
+    public Quiz getQuizId(String title) {
+        TypedQuery<Quiz> typedQuery = entityManager.createQuery(
+                "select q from Quiz q where title=:title", Quiz.class);
+        typedQuery.setParameter("title", title);
+        return typedQuery.getSingleResult();
+//        entityManager.close();
+//        emFactory.close();
+    }
+
     public List<Quiz> getQuizes() {
         TypedQuery<Quiz> typedQuery = entityManager.createQuery(
                 "select q from Quiz q", Quiz.class);

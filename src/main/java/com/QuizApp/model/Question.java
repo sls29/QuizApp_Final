@@ -1,10 +1,7 @@
 package com.QuizApp.model;
 
 import jakarta.persistence.*;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
-import lombok.ToString;
+import lombok.*;
 
 import java.util.List;
 import java.util.Set;
@@ -28,8 +25,13 @@ public class Question {
     private int level;
     private int score;
     private String content;
-//    @ManyToMany
-//    private List<Quiz> quizList;
+    @ManyToMany(fetch = FetchType.EAGER)
+    @JoinTable(name = "quiz_questions",
+            joinColumns = {@JoinColumn(name = "question_id")},
+            inverseJoinColumns = {@JoinColumn(name = "quiz_id")})
+    @ToString.Exclude
+    @EqualsAndHashCode.Exclude
+    private Set<Quiz> quizSet;
 //    @OneToMany
 //    public List<Answer> answerList;
 

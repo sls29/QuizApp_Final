@@ -20,24 +20,29 @@
         <link rel="stylesheet" href="https://unpkg.com/bootstrap-table@1.21.4/dist/bootstrap-table.min.css">
 
         <style>
+        body {
+            opacity = 0.3;
+            filter:alpha(opacity=10)
+        }
+
         { box-sizing: border-box; }
 
-    .column {
-      float: left;
-      width: 40%;
-      padding: 10px;
-      height: 300px;
-      margin: 10px;
-    }
+        .column {
+        float: left;
+        width: 40%;
+        padding: 10px;
+        height: 300px;
+        margin: 10px;
+        }
 
-    .row:after {
-      content: "";
-      display: table;
-      clear: both;
-    }
-    </style>
-</head>
-<body>
+        .row:after {
+        content: "";
+        display: table;
+        clear: both;
+        }
+        </style>
+    </head>
+<body background="https://gamethinking.io/wp-content/uploads/sites/5/2018/12/quiz-background.png">
     <div class = "row">
         <div class = "column">
         </div>
@@ -62,7 +67,7 @@
                         <input type="submit" value="Login" class="btn btn-primary btn-block"/>
                 </form>
         </div>
-        <div class="column" style="backgroud-color:#aaa;">
+        <div class="column" style="backgroud-color:#d9dbec;">
             <h2>User Registration</h2>
                 <form action="user-api" method="POST">
                     <br/>

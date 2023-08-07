@@ -40,4 +40,14 @@ public class JpaQuestionRepository {
 //        entityManager.close();
 //        emFactory.close();
     }
+
+    public List<Question> getQuizQuestions(int quiz_id) {
+        TypedQuery<Question> typedQuery = entityManager.createQuery(
+                "select q from Question q join fetch q.quiz where q.id=:id", Question.class);
+        typedQuery.setParameter("id", quiz_id);
+        return typedQuery.getResultList();
+
+//        entityManager.close();
+//        emFactory.close();
+    }
 }

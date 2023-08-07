@@ -23,8 +23,7 @@ import java.util.List;
 public class QuizApiServlet extends HttpServlet {
 
     private final QuestionService questionService = new QuestionService(new JpaQuestionRepository());
-    private final QuizService quizService = new QuizService(new JpaQuizRepository());
-    ;
+
     int numberOfQuestions = questionService.getNumberOfQuestions();
 
     protected void doPost(HttpServletRequest req, HttpServletResponse resp)

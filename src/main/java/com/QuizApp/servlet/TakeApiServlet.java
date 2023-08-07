@@ -25,6 +25,9 @@ public class TakeApiServlet extends HttpServlet {
                 throws ServletException, IOException {
 
 
+            String userAnswer = req.getParameter("userAnswer");
+
+
 
             RequestDispatcher rd = getServletContext().getRequestDispatcher("/take.jsp");
             rd.include(req, resp);

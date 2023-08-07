@@ -11,15 +11,15 @@ import java.util.List;
 public class QuizService {
     private final JpaQuizRepository jpaQuizRepository;
 
-    public int getNumberOfQuizes(){
+    public int getNumberOfQuizes() {
         return jpaQuizRepository.getNumberOfQuizes();
     }
 
-    public List<Quiz> getNameOfQuizes(){
+    public List<Quiz> getNameOfQuizes() {
         return jpaQuizRepository.getNameOfQuizes();
     }
 
-    public List<Integer> generateNumberQuestions (int maxNumber) {
+    public List<Integer> generateNumberQuestions(int maxNumber) {
         List<Integer> questions = new ArrayList<>();
         for (int i = 1; i < 9; i++) {
             int randNumber = (int) (Math.random() * (maxNumber - 1));
@@ -28,6 +28,10 @@ public class QuizService {
         return questions;
     }
 
-
-
+    public Quiz getQuizId(String quizName) {
+        return jpaQuizRepository.getQuizId(quizName);
+    }
 }
+
+
+
