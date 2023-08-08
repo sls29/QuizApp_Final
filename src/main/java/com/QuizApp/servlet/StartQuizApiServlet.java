@@ -17,7 +17,7 @@ import jakarta.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.util.*;
 
-@WebServlet("/startquiz-api")
+@WebServlet("/start-api")
 public class StartQuizApiServlet extends HttpServlet {
     private final QuizService quizService = new QuizService(new JpaQuizRepository());
     private final QuestionService questionService = new QuestionService(new JpaQuestionRepository());
