@@ -20,7 +20,7 @@
         <style>
 
                 body {
-                    background-image: url("https://gamethinking.io/wp-content/uploads/sites/5/2018/12/quiz-background.png");
+                    background-image: url("https://pilbox.themuse.com/image.jpg?filter=antialias&h=350&opt=1&pos=top-left&prog=1&q=keep&url=https%3A%2F%2Fcms-assets.themuse.com%2Fmedia%2Flead%2Fjob-burnout-quiz-06172022-1251371646-Mohd-Hafiez-Mohd-Razali-EyeEm.jpg&w=700");
                 }
             { box-sizing: border-box;}
 

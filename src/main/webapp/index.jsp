@@ -42,7 +42,7 @@
         }
         </style>
     </head>
-<body background="https://gamethinking.io/wp-content/uploads/sites/5/2018/12/quiz-background.png">
+<body background="https://pilbox.themuse.com/image.jpg?filter=antialias&h=350&opt=1&pos=top-left&prog=1&q=keep&url=https%3A%2F%2Fcms-assets.themuse.com%2Fmedia%2Flead%2Fjob-burnout-quiz-06172022-1251371646-Mohd-Hafiez-Mohd-Razali-EyeEm.jpg&w=700">
     <div class = "row">
         <div class = "column">
         </div>

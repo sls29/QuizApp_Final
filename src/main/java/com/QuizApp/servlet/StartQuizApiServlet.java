@@ -27,7 +27,7 @@ public class StartQuizApiServlet extends HttpServlet {
         String userSelectQuizName = req.getParameter("quizName");
         Quiz quiz = quizService.getQuizId(userSelectQuizName);
 
-        List<Question> questionsList = questionService.getAllQuizQuestions(quiz.getId());
+//        List<Question> questionsList = questionService.getAllQuizQuestions(quiz.getId());
 
         RequestDispatcher rd = req.getServletContext().getRequestDispatcher("/take.jsp");
         rd.include(req, resp);
