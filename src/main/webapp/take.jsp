@@ -68,12 +68,13 @@
         </div>
 
         <title>Quiz''s Question</title>
-            <div class = "row">
-                <div class = "column" style="background-color:#aaa;" style="opacity:.5" >
-                <h2>&nbsp Question</h2>
-                    <table border="1" class="table table-striped table-hover w-50 p-3">
+        <form action="take-api" method="POST">
+        <div class = "row">
+            <div class = "column" style="background-color:#aaa;" style="opacity:.5" >
+            <h2>&nbsp Question</h2>
+                <table border="1" class="table table-striped table-hover w-50 p-3">
                     <tr>
-                        <th> &nbsp Question</th>
+                        <th> &nbsp Question </th>
                     </tr>
                     <%
                         JpaQuestionRepository repo1 = new JpaQuestionRepository();
@@ -83,45 +84,45 @@
                     <tr>
                         <td>&nbsp <%= question.getName() %></td></tr>
                     <% } %>
-                    </table>
-                </div>
+                </table>
             </div>
+        </div>
         <title>Quiz''s Answer Options</title>
-                <div class = "row">
-                    <h1></h1>
-                    <div class="column" style="background-color:#bbb;">
-                        <h2>&nbsp Answers Options</h2>
-                        <table border="1" class="table table-striped table-hover w-50 p-3">
-                            <tr>
-                               <th>Answers</th>
-                            </tr>
-                            <%
+        <div class = "row">
+        <h1></h1>
+            <div class="column" style="background-color:#bbb;">
+            <h2>&nbsp Answers Options</h2>
+                <table border="1" class="table table-striped table-hover w-50 p-3">
+                    <tr>
+                        <th>Answers</th>
+                    </tr>
+                    <%
                             JpaAnswerRepository repo2 = new JpaAnswerRepository();
                             List<Answer> answers = repo2.getAnswers(1);
                             for (Answer answer : answers) {
-                            %>
-                            <tr>
-                               <td><%= answer.getContent() %></td></tr>
-                            <% } %>
-                        </table>
-                    </div>
-                    <div class="column" style="background-color:#aaa;">
-                        <h2>Answer</h2>
-                        <form action="take-api" method="POST">
-                            <div class="form-outline mb-4">
-                                <p><input type="radio" name="userAnswer" value="A" />first</p>
-                            </div>
-                            <div class="form-outline mb-4">
-                                <p><input type="radio" name="userAnswer" value="B" />second</p>
-                            </div>
-                            <div class="form-outline mb-4">
-                                <p><input type="radio" name="userAnswer" value="C" />third</p>
-                            </div>
-                            <div class="form-outline mb-4">
-                                <p><input type="submit" value="Submit" class="btn btn-primary btn-block" />
-                            </div>
-                        </form>
-                    </div>
+                    %>
+                    <tr>
+                        <td><%= answer.getContent() %></td></tr>
+                    <% } %>
+                </table>
+            </div>
+            <div class="column" style="background-color:#aaa;">
+                <h2>Answer</h2>
+                <div class="form-outline mb-4">
+                    <p><input type="radio" name="userAnswer" value="A" />first</p>
                 </div>
-
+                <div class="form-outline mb-4">
+                    <p><input type="radio" name="userAnswer" value="B" />second</p>
+                </div>
+                <div class="form-outline mb-4">
+                    <p><input type="radio" name="userAnswer" value="C" />third</p>
+                </div>
+                <div class="form-outline mb-4">
+                    <p><input type="submit" value="Submit" class="btn btn-primary btn-block" />
+                </div>
+            </div>
+        </div>
+        </form>
+    </body>
+</html>
 

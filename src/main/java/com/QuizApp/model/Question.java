@@ -32,8 +32,8 @@ public class Question {
     @ToString.Exclude
     @EqualsAndHashCode.Exclude
     private Set<Quiz> quizSet;
-//    @OneToMany
-//    public List<Answer> answerList;
+    @OneToMany
+    public Set<Answer> questionAnswers;
 
 
     public Question( String name, String type, int active, int level, int score, String content){

@@ -88,7 +88,7 @@
             </div>
             <div class = "column" style="background-color:#aaa;">
                 <h2>Play Quiz</h2>
-                <form action="take.jsp" method="post">
+                <form action="take.jsp">
                     <div class="form-outline mb-4">
                         <input type="text" name="quizName" value="EasyQuiz" onclick="this.value=''"/><br/>
                     </div>

@@ -24,7 +24,7 @@ public class Quiz {
     private String type;
     private int score;
 
-        @ManyToMany(mappedBy = "quizSet")
+    @ManyToMany(mappedBy = "quizSet")
     private Set<Question> questions;
 
     public Quiz(String title, String summary, String type, int score) {
