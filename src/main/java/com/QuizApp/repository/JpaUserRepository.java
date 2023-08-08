@@ -1,5 +1,6 @@
 package com.QuizApp.repository;
 
+import com.QuizApp.model.Question;
 import com.QuizApp.model.User;
 import jakarta.persistence.*;
 
@@ -55,5 +56,13 @@ public class JpaUserRepository {
 //        entityManager.close();
 //        emFactory.close();
 
+    }
+    public int getNumberOfUsers() {
+        TypedQuery<User> typedQuery = entityManager.createQuery(
+                "select u from User u", User.class);
+        List<User> questionList = typedQuery.getResultList();
+        return questionList.size();
+//        entityManager.close();
+//        emFactory.close();
     }
 }

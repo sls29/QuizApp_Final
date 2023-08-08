@@ -24,7 +24,7 @@
                             float: left;
                             width: 40%;
                             padding: 10px;
-                            height: 300px;
+                            height: 150px;
                             margin: 10px
                         }
 
@@ -37,7 +37,7 @@
     </head>
     <body>
         <div class = "row">
-            <div class = "column">
+            <div class = "column" style="background-color:#ffffff;">
                 <h1><%
                     String firstName = null;
                     Cookie[] cookies = request.getCookies();
@@ -62,6 +62,7 @@
         </div>
 
         <div class = "row">
+            <div class = "column" style="background-color:#aaa;">
             <form action="quiz.jsp" method="get">
             <br/>
             <h3>Go to QuizApp</h3>
@@ -69,15 +70,17 @@
                     <input type="submit" value="Go to quiz" class="btn btn-primary btn-block" />
                 </div>
             </form>
+            </div>
         </div>
         <div class = "row">
+            <div class = "column" style="background-color:#ffffff;">
             <form action="logout-api" method="get">
-            <br/>
                 <h3>Logout</h3>
                 <div class="form-outline mb-4">
                     <input type="submit" value="Logout" class="btn btn-primary btn-block" />
                 </div>
             </form>
+            </div>
         </div>
 
     </body>

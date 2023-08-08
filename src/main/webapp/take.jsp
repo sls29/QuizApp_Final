@@ -42,7 +42,7 @@
     <body>
         <title>Quiz''s</title>
         <div class = "row">
-            <div class = "column">
+            <div class = "column" style="background-color:#ffffff;">
                 <h1><%
                      String firstName = null;
                     Cookie[] cookies = request.getCookies();
@@ -68,8 +68,9 @@
         </div>
 
         <title>Quiz''s Question</title>
-                <div class = "row" style="background-color:#bbb;">
-                <h2>&nbsp Question Number</h2>
+            <div class = "row">
+                <div class = "column" style="background-color:#aaa;" style="opacity:.5" >
+                <h2>&nbsp Question</h2>
                     <table border="1" class="table table-striped table-hover w-50 p-3">
                     <tr>
                         <th> &nbsp Question</th>
@@ -84,7 +85,7 @@
                     <% } %>
                     </table>
                 </div>
-
+            </div>
         <title>Quiz''s Answer Options</title>
                 <div class = "row">
                     <h1></h1>

@@ -67,10 +67,14 @@
                         <input type="submit" value="Login" class="btn btn-primary btn-block"/>
                 </form>
         </div>
-        <div class="column" style="backgroud-color:#d9dbec;">
-            <h2>User Registration</h2>
+        <div class="column" style="background-color:#aaa;">
+            <div class = "row">
                 <form action="user-api" method="POST">
-                    <br/>
+                <div class = "column">
+                <h2>User Registration</h2>
+                    <input type="submit" value="userRegistration" class="btn btn-primary btn-block"/>
+                </div>
+                <div class = "column">
                     <div class="form-outline mb-4">
                         <input type="text" name="firstName" value="firstName..." onclick="this.value=''"/><br/>
                     </div>
@@ -86,9 +90,9 @@
                     <div class="form-outline mb-4">
                        <input type="password" name="password2"  value="Password..." onclick="this.value=''"/><br/>
                     </div>
-                    <br/>
-                        <input type="submit" value="userRegistration" class="btn btn-primary btn-block"/>
+                </div>
                 </form>
+            </div>
         </div>
     </div>
 

@@ -42,7 +42,7 @@
     <body>
         <title>Quiz's</title>
         <div class = "row">
-            <div class = "column">
+            <div class = "column" style="background-color:#ffffff;">
             <h1><%
                  String firstName = null;
                  Cookie[] cookies = request.getCookies();

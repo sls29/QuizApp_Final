@@ -27,10 +27,13 @@
 
     <body>
         <div class = "row">
-              <h2>Goodbye!</h2>
-              <br/>
+            <div class = "column" style="background-color:#ffffff;">
+                <h2>Goodbye!</h2>
+                <br/>
+            </div>
         </div>
         <div class = "row">
+            <div class = "column" style="background-color:#ffffff;">
             <form action="index.jsp" method="get">
                 <h3>Go to Login Page</h3>
                 <br/>
@@ -38,6 +41,7 @@
                     <input type="submit" value="Go to Login" class="btn btn-primary btn-block" />
                 </div>
             </form>
+            </div>
         </div>
     </body>
 </html>

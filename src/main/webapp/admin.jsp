@@ -63,10 +63,10 @@
                 </form>
             </div>
             <div class="column" style="background-color:#aaa;">
-                <h2>Registered Users</h2>
+                <% JpaUserRepository repo3 = new JpaUserRepository(); %>
+                <h2>Registered Users - <%=repo3.getNumberOfUsers() %> </h2>
                     <table border="1" class="table table-striped table-hover w-50 p-3">
                     <tr>
-                        <th>ID</th>
                         <th>FirstName</th>
                         <th>LastName</th>
                         <th>Email</th>
@@ -79,7 +79,6 @@
                         for (User user : users) {
                     %>
                         <tr>
-                            <td><%= user.getId() %></td>
                             <td><%= user.getFirstName() %></td>
                             <td><%= user.getLastName() %></td>
                             <td><%= user.getEmail() %></td>
@@ -124,17 +123,12 @@
                             <td><%=repo2.getNumberOfQuizes()%></td>
                        </tr>
                  </table>
-
-                <form action="quiz-api"
-
-                </form>
             </div>
         </div>
         <div class = "row">
         <h1>Logout Section</h1>
             <form action="logout-api" method="get">
                 <h3>Logout</h3>
-                <br/>
                 <div class="form-outline mb-4">
                     <input type="submit" value="Logout" class="btn btn-primary btn-block" />
                 </div>
